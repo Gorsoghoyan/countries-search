@@ -1,21 +1,20 @@
-import CountriesList from "./components/countriesList/CountriesList";
-import FilteredCountries from "./components/filteredCountries/FilteredCountries";
-import SearchInput from "./components/searchInput/SearchInput";
-import "./components/style.css";
-import useApp from "./customHooks/useApp";
+import { MainRoutes } from "./Routes/MainRoutes";
+import { useEffect } from "react";
+import useApp from "./CustomHook/useApp";
+import Header from "./Components/Header";
 
 function App () {
-  const { isPending, filteredCountries, handleSearch } = useApp();
+  const { dispatch, getCountries } = useApp();
+  
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [ getCountries, dispatch ]);
 
   return (
-    <div className="app">
-      <CountriesList />
-      <SearchInput handleSearch={handleSearch} />
-      <FilteredCountries 
-        isPending={isPending}
-        filteredCountries={filteredCountries}
-      />
-    </div>
+    <>
+      <Header />
+      <MainRoutes />
+    </>
   );
 }
 
