@@ -1,6 +1,5 @@
-import { countriesData } from "../../../FakeData/countries";
-
-const SET_COUNTRIES_DATA = "SET_COUNTRIES_DATA";
+import { countriesData } from "../../../fakeData/countries";
+import { SET_COUNTRIES_DATA } from "../../actionTypes";
 
 const initialState = {
     data: []
@@ -14,8 +13,6 @@ export const countriesReducer = (state = initialState, action) => {
             return state;
     };
 };
-
-export const selectCountries = (state) => state.countries.data;
 
 export const itemCheckboxToggle = (event, id) => {
     const json = localStorage.getItem('countriesData');

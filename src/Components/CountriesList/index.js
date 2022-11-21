@@ -3,10 +3,10 @@ import CountryListItem from '../CountryListItem';
 import './styles.css';
 
 function CountriesList () {
-    const { countriesData, handleChangeCheckbox } = useList();
+    const { countriesData, handleChangeCheckbox, menuStyle } = useList();
 
     return (
-        <div className="countriesList">
+        <div className="countriesList" style={menuStyle}>
             <h2>Countries List</h2>
             <div className="listBox">
                 {countriesData?.map(country => 

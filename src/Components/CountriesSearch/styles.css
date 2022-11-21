@@ -3,6 +3,7 @@
     height: calc(100vh - 60px);
     margin-left: 250px;
     text-align: center;
+    transition: margin-left 0.5s ease;
 }
 
 .filteredCountries {
@@ -32,4 +33,11 @@
 
 .filteredCountries::-webkit-scrollbar-thumb:hover {
     background: #2b75d6; 
+}
+
+@media screen and (max-width: 1400px) {
+    .countriesSearch {
+        width: 100%;
+        margin-left: 0;
+    }
 }

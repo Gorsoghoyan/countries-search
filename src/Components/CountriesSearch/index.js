@@ -4,10 +4,10 @@ import Input from "../Input";
 import "./styles.css";
 
 function CountriesSearch () {
-    const { filteredCountries, search, isPending, setSearch } = useSearch();
+    const { filteredCountries, search, isPending, setSearch, searchStyle } = useSearch();
 
     return (
-        <section className="countriesSearch">
+        <section className="countriesSearch" style={searchStyle}>
             <Input 
                 search={search} 
                 setSearch={setSearch} 
