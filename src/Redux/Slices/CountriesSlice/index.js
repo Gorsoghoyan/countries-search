@@ -5,7 +5,7 @@ const initialState = {
     data: []
 };
 
-export const countriesReducer = (state = initialState, action) => {
+const countriesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_COUNTRIES_DATA :
             return { ...state, data: action.payload };
@@ -13,6 +13,8 @@ export const countriesReducer = (state = initialState, action) => {
             return state;
     };
 };
+
+export default countriesReducer;
 
 export const itemCheckboxToggle = (event, id) => {
     const json = localStorage.getItem('countriesData');

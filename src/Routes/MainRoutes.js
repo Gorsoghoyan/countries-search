@@ -1,10 +1,41 @@
-import { useRoutes } from "react-router-dom";
-import Country from "../Pages/Country";
-import Home from "../Pages/Home";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
-export const MainRoutes = () => {
-    return useRoutes([
-        {path: "/", element: <Home />},
-        {path: "/country/:id", element: <Country />}
-    ]);
+import AuthPage from "../Pages/AuthPage";
+import MainPage from "../Pages/MainPage";
+import ErrorPage from "../Pages/ErrorPage";
+import CountryPage from "../Pages/CountryPage";
+import DashboardPage from "../Pages/DashboardPage";
+
+import ErrorRoute from "./ErrorRoute";
+import PublicRoutes from "./PublicRoutes";
+import RedirectRoute from "./RedirectRout";
+import PrivateRoutes from "./PrivateRoutes";
+import ComponentsRoutes from "./ComponentsRoutes";
+
+const MainRoutes = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route index path="/" element={<RedirectRoute />} />
+
+                <Route path="/" element={<PrivateRoutes />}> 
+                    <Route path="/" element={<ComponentsRoutes />}>
+                        <Route path="countries/web" element={<MainPage />} />
+                        <Route path="countries/admin" element={<DashboardPage />} />
+                        <Route path="country/:countryName" element={<CountryPage />} />
+                    </Route>
+                </Route>
+
+                <Route path="/" element={<PublicRoutes />}>
+                    <Route path="/auth" element={<AuthPage />} />
+                </Route>
+
+                <Route path="/" element={<ErrorRoute />}>
+                    <Route path="*" element={<ErrorPage />} />
+                </Route>
+            </Routes>
+        </Router>
+    );
 };
+
+export default MainRoutes;
