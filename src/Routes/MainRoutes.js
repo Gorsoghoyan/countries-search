@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router, Navigate } from "react-router-dom";
 
 import AuthPage from "../Pages/AuthPage";
 import MainPage from "../Pages/MainPage";
@@ -26,13 +26,14 @@ const MainRoutes = () => {
                     </Route>
                 </Route>
 
-                <Route path="/" element={<PublicRoutes />}>
-                    <Route path="/auth" element={<AuthPage />} />
+                <Route path="/" element={<PublicRoutes />}> 
+                    <Route path="/user/signin" element={<AuthPage />} />
                 </Route>
 
                 <Route path="/" element={<ErrorRoute />}>
-                    <Route path="*" element={<ErrorPage />} />
-                </Route>
+                    <Route path="404" element={<ErrorPage />} />
+                    <Route path="*" element={<Navigate to="404" />} />
+                </Route>    
             </Routes>
         </Router>
     );

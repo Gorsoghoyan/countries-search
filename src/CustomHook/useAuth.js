@@ -17,7 +17,7 @@ const useAuth = () => {
         } else {
             setError("");
             dispatch(setToken());
-            navigate("/countries/admin");
+            navigate("/countries/admin", { replace: true });
             inputRef.current.value = "";
         }
     };

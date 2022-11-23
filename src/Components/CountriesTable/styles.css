@@ -1,0 +1,65 @@
+@import "../../variables.css";
+
+.tableContainer {
+    width: 60%;
+    margin: 40px auto;
+    text-align: end;
+}
+
+.newCountry {
+    width: 150px;
+    margin-left: auto;
+    background: var(--blue);
+    padding: 10px;
+    color: white;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: start;
+}
+
+.table td {
+    padding: 15px;
+}
+
+.table th {
+    background: var(--blue);
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.table .name {
+    font-size: 27px;
+    letter-spacing: 1.4px;
+}
+
+.table .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.table .actions input,
+.table .actions svg {
+    cursor: pointer;
+}
+
+.table .edit {
+    color: var(--blue);
+}
+
+.table .delete {
+    color: rgb(196, 25, 25);
+}
+
+
+

@@ -1,7 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Header from "../Components/Header";
 
 const ComponentsRoutes = () => {
-    return <Outlet />;
+    return (
+        <>
+            <Header />
+            <Outlet />
+        </>
+    );
 };
 
 export default ComponentsRoutes;

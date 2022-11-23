@@ -1,21 +1,11 @@
 import { useSelector } from "react-redux";
 import { selectToken } from "../Redux/selections";
-import { Outlet } from "react-router-dom";
-import Header from "../Components/Header";
+import { Navigate, Outlet } from "react-router-dom";    
  
 const PrivateRoutes = () => {
     const token = useSelector(selectToken);
 
-    return (
-        <>
-        {token ?
-            <>
-                <Header />
-                <Outlet />
-            </> : ""
-        }
-        </>
-    );
+    return token ? <Outlet /> : <Navigate to="/404" />;
 };
 
 export default PrivateRoutes;

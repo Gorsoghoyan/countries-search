@@ -3,7 +3,6 @@
     height: calc(100vh - 60px);
     margin-left: 250px;
     text-align: center;
-    transition: margin-left 0.5s ease;
 }
 
 .filteredCountries {

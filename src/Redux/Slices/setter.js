@@ -1,7 +1,8 @@
+import { SET_COUNTRIES_DATA } from "../actionTypes";
 
-export const setter = (type, payload) => {
+export const setCountries = (countries) => {
     return {
-        type,
-        payload
+        type: SET_COUNTRIES_DATA,
+        payload: countries
     };
-};
+};  

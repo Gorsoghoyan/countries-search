@@ -1,6 +1,6 @@
 import useSearch from "../../CustomHook/useSearch";
 import FilteredCountryItem from "../FilteredCountryItem";
-import Input from "../Input";
+import SearchInput from "../SearchInput";
 import "./styles.css";
 
 function CountriesSearch () {
@@ -8,7 +8,7 @@ function CountriesSearch () {
 
     return (
         <section className="countriesSearch" style={searchStyle}>
-            <Input 
+            <SearchInput 
                 search={search} 
                 setSearch={setSearch} 
                 isPending={isPending}

@@ -8,7 +8,6 @@
     height: calc(100vh - 60px);
     text-align: center;
     background: white;
-    transition: left 0.5s ease;
 }
 
 .countriesList h2 {

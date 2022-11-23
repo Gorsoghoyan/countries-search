@@ -1,10 +1,10 @@
 import Loading from "../Loading";
 import "./styles.css";
 
-function Input ({ search, setSearch, isPending }) {
+function SearchInput ({ search, setSearch, isPending }) {
 
     return (
-        <div className="inputContainer">
+        <div className="searchInputContainer">
             <input 
                 type="search"
                 className="searchInput"
@@ -17,4 +17,4 @@ function Input ({ search, setSearch, isPending }) {
     );
 }
 
-export default Input;
+export default SearchInput;

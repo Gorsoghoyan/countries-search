@@ -1,7 +1,11 @@
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { selectToken } from "../Redux/selections";
 
 const RedirectRoute = () => {
-    return (false 
+    const token = useSelector(selectToken);
+
+    return (token 
         ? <Navigate to="/countries/admin" /> 
         : <Navigate to="/auth" />
     );
