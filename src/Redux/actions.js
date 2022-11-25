@@ -78,11 +78,15 @@ export const addNewCountry = (newCountry) => {
     const json = localStorage.getItem('countriesData');
     const countriesDataFromLS = JSON.parse(json);
 
-    newCountry.id = countriesDataFromLS.length + 1;
-    newCountry.checked = false;
-    const newCountries = [ newCountry, ...countriesData];
+    const country = {
+        ...newCountry,
+        checked: false,
+        id: countriesDataFromLS.length + 1
+    };
 
-    localStorage.setItem("countriesData", JSON.stringify(newCountries));
+    countriesDataFromLS.unshift(country);
 
-    return (dispatch) => dispatch(setCountries(newCountries));
+    localStorage.setItem("countriesData", JSON.stringify(countriesDataFromLS));
+
+    return (dispatch) => dispatch(setCountries(countriesDataFromLS));
 };

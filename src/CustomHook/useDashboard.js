@@ -8,8 +8,8 @@ const useDashboard = () => {
     const countriesData = useSelector(selectCountries);
     const countryData = useSelector(selectEditPopupData);
     const openAddPopup = useSelector(selectOpenAddPopup);
-    const dispatch = useDispatch();
     const [ countries, setCountries ] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getCountries());
@@ -33,17 +33,17 @@ const useDashboard = () => {
         dispatch(closeAddPopup());
     };
 
-    const onOpenADdPopup = () => {
+    const onOpenAddPopup = () => {
         dispatch(openAddpopup());
     };
 
     return {
         countries,
         countryData,
+        openAddPopup,
         onCloseEditPopup,
         onEditCountryData,
-        openAddPopup,
-        onOpenADdPopup,
+        onOpenAddPopup,
         onCLoseAddPopup,
         onAddNewCountry
     };  

@@ -7,6 +7,7 @@ function SearchInput ({ search, setSearch }) {
             className={s.input}
             type="search"
             placeholder="Search by country name"
+            autoFocus={true}
             value={search}
             onChange={e => setSearch(e.target.value)}
         />

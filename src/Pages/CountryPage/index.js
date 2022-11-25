@@ -8,7 +8,7 @@ function CountryPage () {
         <div className={s.countryPage}>
             {country ? 
             <>
-                <h2>{country.name}</h2>
+                <h2 className={s.title}>{country.name}</h2>
                 <p><span>capital of the {country.name}:</span>{country.capital}</p>
                 <p><span>Description of the {country.name}:</span>{country.description}</p>
             </>

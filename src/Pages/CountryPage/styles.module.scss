@@ -4,18 +4,23 @@
     min-height: calc(100% - var(--headerHeight));
     padding: 20px;
 
-    h2 {
-        font-size: 30px;
+    .title {
+        width: max-content;
+        margin: 20px auto;
+        font-size: 40px;
+        color: var(--blue);
     }
 
     p {
         margin: 20px 0;
-        font-size: 18px;
+        font-size: 30px;
+        margin-top: 50px;
     }
 
     span {
-        font-size: 20px;
-        font-weight: bold;
-        margin-right: 20px;
+        font-size: 40px;
+        font-weight: 300;
+        margin-right: 30px;
+        color: var(--blue);
     }
 }

@@ -2,8 +2,7 @@ import CountriesTable from "../../Components/CountriesTable";
 import SearchInput from "../../Components/SearchInput";
 import useDashboard from "../../CustomHook/useDashboard";
 import Loading from "../../Components/Loading";
-import EditPopup from "../../Components/EditPopup";
-import AddPopup from "../../Components/AddPopup";
+import Popup from "../../Components/Popup";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
@@ -11,10 +10,10 @@ function DashboardPage () {
     const { 
         countries, 
         countryData,
+        openAddPopup,
         onCloseEditPopup, 
         onEditCountryData,
-        openAddPopup,
-        onOpenADdPopup,
+        onOpenAddPopup,
         onCLoseAddPopup,
         onAddNewCountry
     } = useDashboard();
@@ -30,7 +29,7 @@ function DashboardPage () {
                     />
                     {isPending && <Loading />}
                 </div>
-                <button onClick={onOpenADdPopup}>Add country</button>
+                <button onClick={onOpenAddPopup}>Add country</button>
             </div>
             <div className={s.tableContainer}>
                 {filteredData ? 
@@ -41,14 +40,21 @@ function DashboardPage () {
                     : <h2>The page is empty</h2>
                 }
             </div>
-            {countryData && <EditPopup 
-                country={countryData} 
+            {countryData && <Popup 
+                name={countryData.name}
+                capital={countryData.capital}
+                description={countryData.description}
+                id={countryData.id}
+                btnText={"Edit"}
+                title={"Edit country"}
                 onClose={onCloseEditPopup}
-                onEditCountryData={onEditCountryData}
+                onSetData={onEditCountryData}
             />}
-            {openAddPopup && <AddPopup 
+            {openAddPopup && <Popup 
+                btnText={"Add"}
+                title={"Add country"}
                 onClose={onCLoseAddPopup}
-                onAddNewCountry={onAddNewCountry}
+                onSetData={onAddNewCountry}
             />} 
         </div>
     );

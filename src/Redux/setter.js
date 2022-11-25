@@ -43,5 +43,3 @@ export const closeAddPopup = () => {
         type: CLOSE_ADD_POPUP
     };
 };
-
-

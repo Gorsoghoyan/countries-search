@@ -1,6 +1,6 @@
 @import "../../variables.css";
 
-.addPopup {
+.popup {
     position: absolute;
     left: 0;
     top: 0;
@@ -60,6 +60,7 @@
             textarea {
                 resize: none;
                 width: 60%;
+                height: 100px;
             }
         }
     }
