@@ -1,8 +1,8 @@
-import "./styles.css";
+import s from "./styles.module.scss";
 
-function Loading ({ className }) {
+function Loading () {
     return (
-        <div className={`lds-ring ${className}`}><div></div><div></div><div></div><div></div></div>
+        <div className={s["lds-ring"]}><div></div><div></div><div></div><div></div></div>
     );
 }
 

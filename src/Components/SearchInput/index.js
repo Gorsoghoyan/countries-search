@@ -1,19 +1,15 @@
-import Loading from "../Loading";
-import "./styles.css";
+import s from "./styles.module.scss";
 
-function SearchInput ({ search, setSearch, isPending }) {
+function SearchInput ({ search, setSearch }) {    
 
     return (
-        <div className="searchInputContainer">
-            <input 
-                type="search"
-                className="searchInput"
-                placeholder="Search by country name"
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-            />
-            {isPending && <Loading className="inputLoading" />}
-        </div>
+        <input 
+            className={s.input}
+            type="search"
+            placeholder="Search by country name"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+        />
     );
 }
 

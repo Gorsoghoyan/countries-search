@@ -1,0 +1,59 @@
+@import "../../variables.css";
+
+.dashboard {
+    height: calc(100%  - var(--headerHeight));
+    display: grid;
+    grid-template-rows: 100px calc(100% - 100px);
+
+    .topContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .inputWrapper {
+            position: relative;
+            width: 45%;
+
+            input {
+                width: 100%;
+                height: 60px;
+            }
+        }
+
+        button {
+            border: none;
+            outline: none;
+            background: var(--blue);
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+    }
+
+    .tableContainer {
+        overflow-y: auto;
+
+        h2 {
+            width: max-content;
+            margin: auto;
+        }
+
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgb(223, 223, 223); 
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #1f79ef; 
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #2b75d6; 
+        }
+    }
+}

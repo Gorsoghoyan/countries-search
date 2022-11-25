@@ -1,0 +1,45 @@
+@import "../../variables.css";
+
+.mainPage {
+    height: calc(100% - var(--headerHeight));
+    display: grid;
+    grid-template-rows: 100px calc(100% - 100px);
+
+    .inputWrapper {
+        position: relative;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input { 
+            width: 50%;
+            height: 60px;
+        }
+    }
+
+    .filteredCountries {
+        overflow: auto;
+        text-align: center;
+
+        h2 {
+            margin: 20px 0;
+        }
+
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: rgb(223, 223, 223); 
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #1f79ef; 
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #2b75d6; 
+        }
+    }
+}

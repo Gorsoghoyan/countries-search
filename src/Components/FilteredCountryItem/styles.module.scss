@@ -1,0 +1,18 @@
+@import "../../variables.css";
+
+.link {
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    background: var(--blue);
+    margin: 20px 100px;
+    border-radius: 20px;
+    text-decoration: none;
+
+    p {
+        border-bottom: 2px solid white;
+    }
+}

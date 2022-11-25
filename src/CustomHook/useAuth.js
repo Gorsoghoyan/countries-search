@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setToken } from "../Redux/Slices/AuthSlice";
+import { userSignIn } from "../Redux/actions";
 
 const useAuth = () => {
     const [ error, setError ] = useState("");
@@ -16,7 +16,7 @@ const useAuth = () => {
             setError("Please fill in the input");
         } else {
             setError("");
-            dispatch(setToken());
+            dispatch(userSignIn());
             navigate("/countries/admin", { replace: true });
             inputRef.current.value = "";
         }

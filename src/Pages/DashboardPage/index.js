@@ -1,16 +1,55 @@
 import CountriesTable from "../../Components/CountriesTable";
+import SearchInput from "../../Components/SearchInput";
 import useDashboard from "../../CustomHook/useDashboard";
-import "./styles.css";
+import Loading from "../../Components/Loading";
+import EditPopup from "../../Components/EditPopup";
+import AddPopup from "../../Components/AddPopup";
+import { useSearch } from "../../CustomHook/useSearch";
+import s from "./styles.module.scss";
 
 function DashboardPage () {
-    const { s } = useDashboard();
+    const { 
+        countries, 
+        countryData,
+        onCloseEditPopup, 
+        onEditCountryData,
+        openAddPopup,
+        onOpenADdPopup,
+        onCLoseAddPopup,
+        onAddNewCountry
+    } = useDashboard();
+    const { search, isPending, filteredData, handleSearch } = useSearch(countries);
 
     return (
-        <div className="dashboard">
-            <h2 className="title">Countries List</h2> 
-            <div className="countriesContaier">
-                <CountriesTable />
+        <div className={s.dashboard}>
+            <div className={s.topContainer}>
+                <div className={s.inputWrapper}>
+                    <SearchInput 
+                        search={search}
+                        setSearch={handleSearch}
+                    />
+                    {isPending && <Loading />}
+                </div>
+                <button onClick={onOpenADdPopup}>Add country</button>
             </div>
+            <div className={s.tableContainer}>
+                {filteredData ? 
+                    filteredData.length ? 
+                    <CountriesTable 
+                        filteredCountries={filteredData}
+                    /> : <h2>No such country found</h2>
+                    : <h2>The page is empty</h2>
+                }
+            </div>
+            {countryData && <EditPopup 
+                country={countryData} 
+                onClose={onCloseEditPopup}
+                onEditCountryData={onEditCountryData}
+            />}
+            {openAddPopup && <AddPopup 
+                onClose={onCLoseAddPopup}
+                onAddNewCountry={onAddNewCountry}
+            />} 
         </div>
     );
 }

@@ -22,7 +22,7 @@ const MainRoutes = () => {
                     <Route path="/" element={<ComponentsRoutes />}>
                         <Route path="countries/web" element={<MainPage />} />
                         <Route path="countries/admin" element={<DashboardPage />} />
-                        <Route path="country/:countryName" element={<CountryPage />} />
+                        <Route path="country/:id" element={<CountryPage />} />
                     </Route>
                 </Route>
 

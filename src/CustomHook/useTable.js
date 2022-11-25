@@ -1,38 +1,22 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeCountryCheckbox, deleteCountry, getCountries } from "../Redux/actions";
-import { selectCountries } from "../Redux/selections";
+import { useDispatch } from "react-redux";
+import { changeCountryCheckbox, deleteCountry } from "../Redux/actions";
+import { openEditPopup } from "../Redux/setter";
 
 const useTable = () => {
-    const countriesData = useSelector(selectCountries);
-    const [ countries, setCountries ] = useState(null); 
     const dispatch = useDispatch();
+    
+    const onChange = (evt, id) => dispatch(changeCountryCheckbox(evt, id));
 
-    useEffect(() => {
-        dispatch(getCountries());
-    }, []);
+    const onDelete = (id) => dispatch(deleteCountry(id));
 
-    useEffect(() => {   
-        setCountries(countriesData);
-    }, [ countriesData ]);
-
-    const onChange = (evt, id) => {
-        dispatch(changeCountryCheckbox(evt, id));
-    };
-
-    const onDelete = (id) => {
-        dispatch(deleteCountry(id));
-    };
-
-    const onEdit = () => {
-        
+    const onEdit = (country) => {
+        dispatch(openEditPopup(country));
     };
 
     return {
-        countries,
         onChange,
         onDelete,
-        onEdit
+        onEdit,
     };
 };
 

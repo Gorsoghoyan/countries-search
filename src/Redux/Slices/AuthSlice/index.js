@@ -18,15 +18,3 @@ function authReducer (state = initialState, action) {
 }
 
 export default authReducer;
-
-export const setToken = () => {
-    localStorage.setItem("token", Date.now());
-
-    return { type: SET_TOKEN };
-};
-
-export const deleteToken = () => {
-    localStorage.removeItem("token");
-
-    return { type: DELETE_TOKEN };
-};

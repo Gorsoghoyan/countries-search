@@ -3,7 +3,7 @@ import "./styles.css";
 function ErrorPage () {
     
     return (
-        <div>not found</div>
+        <h2 className="message">No page found with that name</h2>
     );
 }
 

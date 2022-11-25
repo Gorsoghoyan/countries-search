@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-import "./styles.css";
+import s from "./styles.module.scss";
 
-function FilteredCountryItem ({ id, name }) {
-
+function FilteredCountryItem ({ countryName, link }) {
     return (
-        <Link 
-            to={`/country/${id}`}
-            className="filteredCountryitem"
-        >
-            <p>{name}</p>
+        <Link className={s.link} to={`/country/${link}`}>
+            <p>{countryName}</p>
         </Link>
     );
 }
