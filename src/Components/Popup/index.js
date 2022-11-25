@@ -17,6 +17,10 @@ function Popup ({ onClose, onSetData, id, name="", capital="", description="", b
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
+        if (!data.name && !data.capital && !data.description) {
+            return;
+        }
+
         if (id) {
             onSetData(id, data);
         } else {

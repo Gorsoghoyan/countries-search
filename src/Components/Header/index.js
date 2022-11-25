@@ -5,24 +5,27 @@ import "./styles.css";
 
 const navConfig = [
     { text: "Dashboard", link: "/countries/admin" },
-    { text: "General", link: "/countries/web" },
+    { text: "General", link: "/countries/web" }
 ];
 
 function Header () {
-    const { handleClick, token } = useHeader();
+    const { handleClick, onSignOut, token } = useHeader();
 
     return (
         <header className="header">
             <h1>Countries App</h1>
             <nav className="nav">
                 {token ? 
-                    navConfig.map((item, index) => 
-                        <NavItem
-                            key={index}
-                            text={item.text}
-                            link={item.link}
-                        />
-                    ) :
+                    <>
+                        {navConfig.map((item, index) => 
+                            <NavItem
+                                key={index}
+                                text={item.text}
+                                link={item.link}
+                            />
+                        )}
+                        <p onClick={onSignOut}>Sign out</p>
+                    </> :
                     <NavItem text="Sign in" link="/user/signin" />
                 }
             </nav>            

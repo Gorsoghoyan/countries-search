@@ -12,6 +12,21 @@
     color: white;
 }
 
+.header nav {
+    display: flex;
+    align-items: center;
+}
+
+.header nav p {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 15px;
+    letter-spacing: 1.2px;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+}
+
 .header .menuIcon {
     font-size: 35px;
     cursor: pointer;
