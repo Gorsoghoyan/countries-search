@@ -1,13 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header from "../Components/Header";
 
 const ErrorRoute = () => {
-    return (
-        <>
-            <Header />
-            <Outlet />
-        </>
-    );
+    return <Outlet />;
 };
 
 export default ErrorRoute;

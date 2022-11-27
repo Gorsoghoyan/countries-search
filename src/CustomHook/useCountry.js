@@ -6,9 +6,9 @@ import { getCountries } from "../Redux/actions";
 
 const useCountry = () => {
     const countries = useSelector(selectCountries);
-    const dispatch = useDispatch();
-    const { id } = useParams();
     const [ country, setCountry ] = useState(null);
+    const { id } = useParams();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         countries?.find(country => {

@@ -81,7 +81,7 @@ export const addNewCountry = (newCountry) => {
     const country = {
         ...newCountry,
         checked: false,
-        id: countriesDataFromLS.length + 1
+        id: Date.now() + Math.random()
     };
 
     countriesDataFromLS.unshift(country);

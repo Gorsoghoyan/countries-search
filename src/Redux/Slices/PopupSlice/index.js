@@ -1,44 +1,20 @@
-import { CLOSE_ADD_POPUP, CLOSE_EDIT_POPUP, OPEN_ADD_POPUP, OPEN_EDIT_POPUP } from "../../actionTypes";
 
 const initialState = {
-    editPopup: {
-        countryData: null,
-    },
-    addPopup: {
-        open: false,
-    }
+    openAdd: false,
+    openEdit: false,
+    countryData: null
 };
 
 function popupReducer (state = initialState, action) {
     switch (action.type) {
-        case OPEN_EDIT_POPUP :
-            return { 
-                ...state,  
-                editPopup: {
-                    countryData: action.payload
-                }
-            };
-        case CLOSE_EDIT_POPUP :
-            return {
-                ...state,
-                editPopup: {
-                    countryData: null
-                }
-            };
-        case OPEN_ADD_POPUP :
-            return {
-                ...state,
-                addPopup: {
-                    open: true
-                }
-            };
-        case CLOSE_ADD_POPUP :
-            return {
-                ...state,
-                addPopup: {
-                    open: false
-                }
-            };
+        case "OPEN_ADD_POPUP" :
+            return { ...state, openAdd: true };
+        case "OPEN_EDIT_POPUP" :
+            return { ...state, openEdit: true, countryData: action.payload };
+        case "CLOSE_ADD_POPUP" :
+            return { ...state, openAdd: false };
+        case "CLOSE_EDIT_POPUP" :
+            return { ...state, openEdit: false, countryData: action.payload };
         default :
             return state;
     };

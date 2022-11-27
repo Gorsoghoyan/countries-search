@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
 
-const ComponentsRoutes = () => {
+const HeaderRoutes = () => {
     return (
         <>
             <Header />
@@ -10,4 +10,4 @@ const ComponentsRoutes = () => {
     );
 };
 
-export default ComponentsRoutes;
+export default HeaderRoutes;

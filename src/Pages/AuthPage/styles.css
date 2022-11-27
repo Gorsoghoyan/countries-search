@@ -77,14 +77,6 @@
     background: linear-gradient(to top, #8b8bff, var(--blue), var(--blue));
 }
 
-.bgTheme {
-    position: absolute;
-    left: 10%;
-    top: 5%;
-    font-size: 130px;
-    color: #4848ff;
-}
-
 @media screen and (max-width: 1264px) {
     .authPage {
         overflow: auto;

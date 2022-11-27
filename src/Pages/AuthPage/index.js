@@ -16,7 +16,6 @@ function AuthPage () {
                 />
                 <button>submit</button>
             </form>
-            <div className="bgTheme">Countries app</div>
             <div className="rightBox"></div>
             <div className="leftBox"></div>
         </div>

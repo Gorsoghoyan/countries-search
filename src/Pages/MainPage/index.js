@@ -26,7 +26,8 @@ function MainPage () {
                             countryName={country.name}
                             link={country.id}
                         />
-                    ) : <h2>Is empty</h2>}
+                    ) : <h2>Is empty</h2>
+                }
             </div>
         </section>
     );

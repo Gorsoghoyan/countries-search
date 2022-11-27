@@ -1,8 +1,8 @@
 import { useEffect, useState, useTransition } from "react";
 
 export const useSearch = ( countries ) => {
-    const [ filteredData, setFilteredData ] = useState(null);
     const [ search, setSearch ] = useState("");
+    const [ filteredData, setFilteredData ] = useState(null);
     const [ isPending, startTransition ] = useTransition();
 
     useEffect(() => {
@@ -24,7 +24,6 @@ export const useSearch = ( countries ) => {
     };
 
     return {
-        filteredData,
         filteredData,
         isPending,
         handleSearch

@@ -12,28 +12,26 @@ function CountriesTable ({ filteredCountries }) {
     const { onChange, onDelete, onEdit } = useTable();
 
     return (
-        <>
-            <table border="1" className={s.countriesTable}>
-                <thead>
-                    <tr>
-                        {column.map((item, index) => 
-                            <TableHeadItem key={index} title={item.title} />
-                        )}
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredCountries?.map(country =>
-                        <TableRow 
-                            key={country.id}
-                            country={country}
-                            onChange={onChange}
-                            onDelete={onDelete}
-                            onEdit={onEdit}
-                        />    
+        <table border="1" className={s.countriesTable}>
+            <thead>
+                <tr>
+                    {column.map((item, index) => 
+                        <TableHeadItem key={index} title={item.title} />
                     )}
-                </tbody>
-            </table>
-        </>
+                </tr>
+            </thead>
+            <tbody>
+                {filteredCountries?.map(country =>
+                    <TableRow 
+                        key={country.id}
+                        country={country}
+                        onChange={onChange}
+                        onDelete={onDelete}
+                        onEdit={onEdit}
+                    />    
+                )}
+            </tbody>
+        </table>
     );
 }
 
