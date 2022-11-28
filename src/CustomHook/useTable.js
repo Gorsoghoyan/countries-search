@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { changeCountryCheckbox, deleteCountry } from "../Redux/actions";
-import { openEditPopup } from "../Redux/setter";
+import { openEditPopup, openReadPopup } from "../Redux/setter";
 
 const useTable = () => {
     const dispatch = useDispatch();
@@ -8,6 +8,10 @@ const useTable = () => {
     const onChange = (evt, id) => dispatch(changeCountryCheckbox(evt, id));
 
     const onDelete = (id) => dispatch(deleteCountry(id));
+
+    const onRead = (country) => {
+        dispatch(openReadPopup(country));
+    };
 
     const onEdit = (country) => {
         dispatch(openEditPopup(country));
@@ -17,6 +21,7 @@ const useTable = () => {
         onChange,
         onDelete,
         onEdit,
+        onRead
     };
 };
 

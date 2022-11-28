@@ -6,7 +6,7 @@ const RedirectRoute = () => {
     const token = useSelector(selectToken);
 
     return (token 
-        ? <Navigate to="/countries/admin" /> 
+        ? <Navigate to="/admin/countries" /> 
         : <Navigate to="/user/signin" />
     );
 };

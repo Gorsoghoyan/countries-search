@@ -24,8 +24,8 @@ const MainRoutes = () => {
 
                 <Route path="/" element={<HeaderRoutes />}>
                     <Route path="/" element={<PrivateRoutes />}> 
-                        <Route path="countries/web" element={<MainPage />} />
-                        <Route path="countries/admin" element={<DashboardPage />} />
+                        <Route path="web/countries" element={<MainPage />} />
+                        <Route path="admin/countries" element={<DashboardPage />} />
                         <Route path="country/:id" element={<CountryPage />} />
                     </Route>
 

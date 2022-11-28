@@ -9,7 +9,7 @@ const column = [
 ];
 
 function CountriesTable ({ filteredCountries }) {
-    const { onChange, onDelete, onEdit } = useTable();
+    const { onChange, onDelete, onEdit, onRead } = useTable();
 
     return (
         <table border="1" className={s.countriesTable}>
@@ -27,6 +27,7 @@ function CountriesTable ({ filteredCountries }) {
                         country={country}
                         onChange={onChange}
                         onDelete={onDelete}
+                        onRead={onRead}
                         onEdit={onEdit}
                     />    
                 )}

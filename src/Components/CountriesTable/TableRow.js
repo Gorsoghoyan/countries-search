@@ -1,8 +1,8 @@
 import { RiDeleteBinLine } from "react-icons/ri";
-import { AiFillEdit } from "react-icons/ai";
+import { AiFillEdit, AiFillRead } from "react-icons/ai";
 import s from "./styles.module.scss";
 
-const TableRow = ({ country, onChange, onDelete, onEdit }) => {
+const TableRow = ({ country, onChange, onDelete, onEdit, onRead }) => {
     return (
         <tr>
             <td className={s.name}>{country.name}</td>
@@ -14,6 +14,7 @@ const TableRow = ({ country, onChange, onDelete, onEdit }) => {
                         onChange={e => onChange(e, country.id)}
                     />
                     <AiFillEdit onClick={() => onEdit(country)}/>
+                    <AiFillRead onClick={() => onRead(country)} />
                     <RiDeleteBinLine onClick={() => onDelete(country.id)} />  
                 </div>
             </td>

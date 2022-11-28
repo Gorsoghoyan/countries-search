@@ -1,11 +1,13 @@
 import { FiMenu } from "react-icons/fi";
+import { GoSignOut } from "react-icons/go";
+import { MdDashboard, MdWebStories } from "react-icons/md";
 import useHeader from "../../CustomHook/useHeader";
 import NavItem from "../NavItem";
 import "./styles.css";
 
 const navConfig = [
-    { text: "Dashboard", link: "/countries/admin" },
-    { text: "General", link: "/countries/web" }
+    { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
+    { text: "General", icon: <MdWebStories />, link: "/web/countries" },
 ];
 
 function Header () {
@@ -20,11 +22,12 @@ function Header () {
                         {navConfig.map((item, index) => 
                             <NavItem
                                 key={index}
+                                icon={item.icon}
                                 text={item.text}
                                 link={item.link}
                             />
                         )}
-                        <p onClick={onSignOut}>Sign out</p>
+                        <GoSignOut onClick={onSignOut} />
                     </> :
                     <NavItem text="Sign in" link="/user/signin" />
                 }

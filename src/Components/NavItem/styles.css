@@ -1,9 +1,7 @@
 .navItem {
     text-decoration: none;
     color: white;
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
-    margin: 0 15px;
     letter-spacing: 1.2px;
-    border-bottom: 2px solid white;
 }
