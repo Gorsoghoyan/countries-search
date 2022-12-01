@@ -1,39 +1,28 @@
 import { FiMenu } from "react-icons/fi";
-import { GoSignOut } from "react-icons/go";
-import { MdDashboard, MdWebStories } from "react-icons/md";
 import useHeader from "../../CustomHook/useHeader";
-import NavItem from "../NavItem";
-import "./styles.css";
-
-const navConfig = [
-    { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
-    { text: "General", icon: <MdWebStories />, link: "/web/countries" },
-];
+import NavItem from "./NavItem";
+import s from "./styles.module.scss";
+import classnames from "classnames";
 
 function Header () {
-    const { handleClick, onSignOut, token } = useHeader();
+    const { handleClick, closeNav, navData, active } = useHeader();
 
     return (
-        <header className="header">
+        <header className={s.header}>
             <h1>Countries App</h1>
-            <nav className="nav">
-                {token ? 
-                    <>
-                        {navConfig.map((item, index) => 
-                            <NavItem
-                                key={index}
-                                icon={item.icon}
-                                text={item.text}
-                                link={item.link}
-                            />
-                        )}
-                        <GoSignOut onClick={onSignOut} />
-                    </> :
-                    <NavItem text="Sign in" link="/user/signin" />
-                }
+            <nav className={classnames({ [s.active]: active })}>
+                {navData?.map((item, index) => 
+                    <NavItem
+                        key={index}
+                        icon={item.icon}
+                        text={item.text}
+                        link={item.link}
+                        closeNav={closeNav}
+                    />
+                )}
             </nav>            
             <FiMenu     
-                className="menuIcon"
+                className={s.menuIcon}
                 onClick={handleClick}
             />
         </header>

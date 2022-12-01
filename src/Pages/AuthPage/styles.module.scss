@@ -1,0 +1,57 @@
+@import "../../variables.css";
+
+.authPage {
+    position: relative;
+    min-height: calc(100% - var(--headerHeight));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    form {
+        width: 500px;
+        margin: 40px 0; 
+        border-radius: 20px;
+        padding: 50px 20px;
+
+        h2 {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 20px 30px;
+            margin: 20px 0;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            font-size: 16px;
+            border: 1px solid black;
+            &::placeholder {
+                font-size: 16px;
+            }
+        }
+
+        button {
+            width: 100%;
+            background: var(--blue);
+            color: white;
+            font-size: 25px;
+            border-radius: 20px;
+            padding: 18px;
+            margin-top: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .error {
+            width: max-content;
+            margin: 5px auto;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

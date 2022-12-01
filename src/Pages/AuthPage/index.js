@@ -1,14 +1,16 @@
+import GoBack from "../../Components/goBack";
 import useAuth from "../../CustomHook/useAuth";
-import "./styles.css";
+import s from "./styles.module.scss";
 
 function AuthPage () {
     const { error, inputRef, handleSubmit } = useAuth();
 
     return (
-        <div className="authPage">
+        <div className={s.authPage}>
+            <GoBack />
             <form onSubmit={handleSubmit}>
                 <h2>Sign in</h2>
-                {error && <p className="error">{error}</p>}
+                {error && <p className={s.error}>{error}</p>}
                 <input 
                     type="password"
                     placeholder="Password"
@@ -16,8 +18,6 @@ function AuthPage () {
                 />
                 <button>submit</button>
             </form>
-            <div className="rightBox"></div>
-            <div className="leftBox"></div>
         </div>
     );
 }

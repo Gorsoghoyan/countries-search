@@ -1,10 +1,9 @@
 
-function PopupItem ({ spanText, input, textarea, data, adjective, value, setData }) {
+function PopupItem ({ input, textarea, data, adjective, value, setData }) {
 
     if (textarea) {
         return (
             <div>
-                <span>{spanText}</span>
                 <textarea
                     placeholder={textarea.placeholder}
                     value={value}
@@ -17,7 +16,6 @@ function PopupItem ({ spanText, input, textarea, data, adjective, value, setData
 
     return (
         <div>
-            <span>{spanText}</span>
             <input
                 type={input.type}
                 placeholder={input.placeholder}

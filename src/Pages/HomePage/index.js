@@ -1,16 +1,20 @@
+import CountryDetailsPopup from "../../Components/CountryDetailsPopup";
 import FilteredCountryItem from "../../Components/FilteredCountryItem";
+import GoBack from "../../Components/goBack";
 import Loading from "../../Components/Loading";
 import SearchInput from "../../Components/SearchInput";
-import useMain from "../../CustomHook/useMain";
+import useHome from "../../CustomHook/useHome";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
-function MainPage () {
-    const { countries } = useMain();
+function HomePage () {
+    const { countries, country, closeCountryPopup, showCountryPopup } = useHome();
     const { filteredData, isPending, search, handleSearch } = useSearch(countries);
 
     return (
-        <section className={s.mainPage}>
+        <>
+        <section className={s.homePage}>
+            <GoBack />
             <div className={s.inputWrapper}>
                 <SearchInput    
                     search={search}
@@ -23,14 +27,19 @@ function MainPage () {
                     filteredData.map(country => 
                         <FilteredCountryItem 
                             key={country.id}
-                            countryName={country.name}
-                            link={country.id}
+                            country={country}
+                            showCountryPopup={showCountryPopup}
                         />
                     ) : <h2>Is empty</h2>
                 }
             </div>
         </section>
+        {country && <CountryDetailsPopup 
+            country={country} 
+            closeCountryPopup={closeCountryPopup}
+        />}
+        </>
     );
 }
 
-export default MainPage;
+export default HomePage;

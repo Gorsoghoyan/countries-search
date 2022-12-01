@@ -17,7 +17,7 @@ function EditPopup ({ countryData }) {
     return (
         <PopupTemplate 
             type="Edit"
-            title="Add country"
+            title="Edit country"
             country={countryData}
             onClose={handleClose}
             onSetData={handleSetData}

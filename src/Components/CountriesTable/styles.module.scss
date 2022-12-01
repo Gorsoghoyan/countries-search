@@ -1,12 +1,15 @@
 @import "../../variables.css";
 
 .countriesTable {
-    width: 70%;
+    width: 90%;
     border-collapse: collapse;
-    margin: 20px auto;
+    border: none;
+    margin: 20px auto 40px auto;
 
-    th {
-        border: none;
+    tr {
+        &:nth-child(even) {
+            background-color: rgb(241, 241, 241);
+        }
     }
 
     th {
@@ -14,6 +17,7 @@
         color: white;
         padding: 20px;
         font-size: 20px;
+        border: none;
     }
 
     td {
@@ -45,11 +49,32 @@
                 color: rgb(78, 78, 78);
             }
             &:nth-child(3) {
-                color: rgb(84, 104, 118);
-            }
-            &:nth-child(4) {
                 color: rgb(196, 25, 25);
             }
+        }
+    }
+}
+
+@media screen and (max-width: 869px) {
+    .countriesTable {
+        .name {
+            width: 60%;
+        }
+
+        .actions {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 646px) {
+    .countriesTable {
+        .name {
+            width: 50%;
+        }
+
+        .actions {
+            width: 50%;
         }
     }
 }

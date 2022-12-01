@@ -1,6 +1,5 @@
 export const popupItemsConfig = [
     {
-        spanText: "Name:",
         adjective: "name",
         input: {
             type: "text",
@@ -9,16 +8,14 @@ export const popupItemsConfig = [
         }
     },
     {
-        spanText: "The capital of the country:",
         adjective: "capital",
         input: {
             type: "text",
-            placeholder: "Name",
+            placeholder: "Capital",
             autoFocus: false,
         }
     },
     {
-        spanText: "Description of the country:",
         adjective: "description",
         textarea: {
             placeholder: "Write description about country"

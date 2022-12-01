@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
 import s from "./styles.module.scss";
 
-function FilteredCountryItem ({ countryName, link }) {
+function FilteredCountryItem ({ country, showCountryPopup }) {
     return (
-        <Link className={s.link} to={`/country/${link}`}>
-            <p>{countryName}</p>
-        </Link>
+        <div 
+            className={s.filteredItem} 
+            onClick={() => showCountryPopup(country)}
+        >
+            <p>{country.name}</p>
+        </div>
     );
 }
 

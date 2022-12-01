@@ -24,7 +24,6 @@ function PopupTemplate ({ country=initialCountry, type, onClose, onSetData, titl
                         key={index}
                         data={data}
                         input={item.input}
-                        spanText={item.spanText}
                         textarea={item.textarea}
                         adjective={item.adjective}
                         value={data[item.adjective]}

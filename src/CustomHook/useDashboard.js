@@ -6,8 +6,7 @@ import { openAddPopup } from "../Redux/setter";
 
 const useDashboard = () => {
     const [ countries, setCountries ] = useState(null);
-
-    const { openAdd, openEdit, countryData, openRead } = useSelector(selectPopup);
+    const { openAdd, openEdit, countryData } = useSelector(selectPopup);
     const countriesData = useSelector(selectCountries);
     const dispatch = useDispatch();
 
@@ -27,7 +26,6 @@ const useDashboard = () => {
         countries,
         openAdd,
         openEdit,
-        openRead,
         countryData,
         handleAddPopup
     };  

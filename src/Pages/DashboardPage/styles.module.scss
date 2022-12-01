@@ -1,14 +1,29 @@
 @import "../../variables.css";
 
 .dashboard {
-    height: calc(100%  - var(--headerHeight));
-    display: grid;
-    grid-template-rows: 100px calc(100% - 100px);
+    height: calc(100% - var(--headerHeight));
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgb(223, 223, 223); 
+        border-radius: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #1f79ef; 
+        border-radius: 20px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #2b75d6; 
+    }
 
     .topContainer {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 20px 0;
 
         .inputWrapper {
             position: relative;
@@ -16,7 +31,6 @@
 
             input {
                 width: 100%;
-                height: 60px;
             }
         }
 
@@ -26,34 +40,40 @@
             background: var(--blue);
             color: white;
             font-size: 20px;
-            padding: 10px;
+            padding: 10px 20px;
             margin-left: 40px;
+            border-radius: 5px;
+            margin-top: auto;
             cursor: pointer;
         }
     }
 
     .tableContainer {
-        overflow-y: auto;
 
         h2 {
             width: max-content;
             margin: auto;
         }
+    }
+}
 
-        &::-webkit-scrollbar {
-            width: 15px;
-        }
+@media screen and (max-width: 1024px) {
+    .dashboard {
+        .topContainer {
+            flex-direction: column;
 
-        &::-webkit-scrollbar-track {
-            background: rgb(223, 223, 223); 
-        }
+            .inputWrapper {
+                width: 80%;
 
-        &::-webkit-scrollbar-thumb {
-            background: #1f79ef; 
-        }
+                input {
+                    margin: 20px 0;
+                }
+            }
 
-        &::-webkit-scrollbar-thumb:hover {
-            background: #2b75d6; 
+            button {
+                margin: 15px 0 0 0;
+                padding: 8px 50px;
+            }
         }
     }
 }
