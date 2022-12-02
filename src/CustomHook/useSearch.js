@@ -1,6 +1,6 @@
 import { useEffect, useState, useTransition } from "react";
 
-export const useSearch = ( countries ) => {
+export const useSearch = (countries) => {
     const [ search, setSearch ] = useState("");
     const [ filteredData, setFilteredData ] = useState(null);
     const [ isPending, startTransition ] = useTransition();

@@ -3,14 +3,12 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import AuthPage from "../Pages/AuthPage";
 import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
-import CountryPage from "../Pages/CountryPage";
 import DashboardPage from "../Pages/DashboardPage";
 
 import ErrorRoute from "./ErrorRoute";
 import PublicRoutes from "./PublicRoutes";
 import RedirectRoute from "./RedirectRout";
 import PrivateRoutes from "./PrivateRoutes";
-import HeaderRoutes from "./HeaderRoutes";
 import ComponentRoutes from "./ComponentRoutes";
 
 const MainRoutes = () => {

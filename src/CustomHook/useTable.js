@@ -16,7 +16,7 @@ const useTable = () => {
     return {
         onChange,
         onDelete,
-        onEdit,
+        onEdit
     };
 };
 
