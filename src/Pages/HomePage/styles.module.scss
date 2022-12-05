@@ -1,9 +1,8 @@
 @import "../../variables.css";
 
 .homePage {
-    height: calc(100% - var(--headerHeight));   
-    position: relative;
-    overflow-y: auto;
+    height: calc(100% - var(--headerHeight));
+    overflow: auto;
     &::-webkit-scrollbar {
         width: 15px;
     }
@@ -19,21 +18,62 @@
         background: #2b75d6; 
     }
 
-    .inputWrapper {
-        width: 60%;
+    .topContainer {
         position: relative;
-        margin: 40px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
 
-        input { 
-            width: 100%;
+        .inputWrapper {
+            position: relative;
+            width: 45%;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        button {
+            border: none;
+            outline: none;
+            background: var(--blue);
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-left: 40px;
+            border-radius: 5px;
+            margin-top: auto;
+            cursor: pointer;
         }
     }
 
-    .filteredCountries {
-        text-align: center;
+    .tableContainer {
 
         h2 {
-            margin: 20px 0;
+            width: max-content;
+            margin: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .homePage {
+        .topContainer {
+            flex-direction: column;
+
+            .inputWrapper {
+                width: 80%;
+
+                input {
+                    margin: 20px 0;
+                }
+            }
+
+            button {
+                margin: 15px 0 0 0;
+                padding: 8px 50px;
+            }
         }
     }
 }

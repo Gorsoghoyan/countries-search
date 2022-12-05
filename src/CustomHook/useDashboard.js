@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../Redux/actions";
-import { selectCountries, selectPopup } from "../Redux/selections";
-import { openAddPopup } from "../Redux/setter";
+import { selectCountries } from "../Redux/selections";
+import useScrollHistory from "./useScrollHistory";
 
 const useDashboard = () => {
     const [ countries, setCountries ] = useState(null);
-    const { openAdd, openEdit, countryData } = useSelector(selectPopup);
+    const [ country, setCountry ] = useState(null);
     const countriesData = useSelector(selectCountries);
+    const nodeRef = useScrollHistory();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,20 +16,28 @@ const useDashboard = () => {
     }, [ dispatch ]);
 
     useEffect(() => {
-        setCountries(countriesData);
+        if (countriesData) {
+            setCountries(countriesData.filter(country => country.checked));
+        }
     }, [ countriesData ]);
 
-    const handleAddPopup = () => {
-        dispatch(openAddPopup());  
+    const showCountryPopup = (country) => {
+        document.body.style.overflow = "hidden";
+        setCountry(country);
     };
+
+    const closeCountryPopup = () => {
+        document.body.style.overflow = "auto";
+        setCountry(null);
+    };      
 
     return {
         countries,
-        openAdd,
-        openEdit,
-        countryData,
-        handleAddPopup
-    };  
+        country,
+        nodeRef,
+        closeCountryPopup,
+        showCountryPopup
+    };
 };
 
 export default useDashboard;

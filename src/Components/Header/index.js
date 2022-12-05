@@ -1,8 +1,8 @@
 import { FiMenu } from "react-icons/fi";
 import useHeader from "../../CustomHook/useHeader";
 import NavItem from "./NavItem";
-import s from "./styles.module.scss";
 import classnames from "classnames";
+import s from "./styles.module.scss";
 
 function Header () {
     const { handleClick, closeNav, navData, active } = useHeader();
