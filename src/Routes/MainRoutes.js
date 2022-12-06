@@ -1,8 +1,8 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import AuthPage from "../Pages/AuthPage";
-import HomePage from "../Pages/HomePage";
 import ErrorPage from "../Pages/ErrorPage";
+import HomePage from "../Pages/HomePage";
 import DashboardPage from "../Pages/DashboardPage";
 
 import ErrorRoute from "./ErrorRoute";

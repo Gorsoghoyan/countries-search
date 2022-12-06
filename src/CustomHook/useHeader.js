@@ -11,8 +11,8 @@ const publicNavConfig = [
 ];
 
 const privateNavConfig = [
-    { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
     { text: "Home", icon: <AiFillHome />, link: "/web/countries" },
+    { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
     { text: "Sign out", icon: <GoSignOut /> }
 ];
 

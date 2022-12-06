@@ -1,41 +1,43 @@
-import CountriesTable from "../../Components/CountriesTable";
+import CountryDetailsPopup from "../../Components/CountryDetailsPopup";
+import FilteredCountryItem from "../../Components/FilteredCountryItem";
+import GoBack from "../../Components/goBack";
+import Loading from "../../Components/Loading";
 import SearchInput from "../../Components/SearchInput";
 import useDashboard from "../../CustomHook/useDashboard";
-import Loading from "../../Components/Loading";
-import AddPopup from "../../Components/AddPopup";
-import EditPopup from "../../Components/EditPopup";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
 function DashboardPage () {
-    const { countries, openAdd, openEdit, countryData, handleAddPopup } = useDashboard();
-    const { isPending, filteredData, search, handleSearch } = useSearch(countries);
+    const { countries, country, nodeRef, closeCountryPopup, showCountryPopup } = useDashboard();
+    const { filteredData, isPending, search, handleSearch } = useSearch(countries);
 
     return (
         <>
-        <section className={s.dashboard}>
-            <div className={s.topContainer}>
-                <div className={s.inputWrapper}>
-                    <SearchInput 
-                        search={search}
-                        setSearch={handleSearch}
-                    />
-                    {isPending && <Loading />}
-                </div>
-                <button onClick={handleAddPopup}>Add country</button>
+        <section className={s.dashboardPage} ref={nodeRef}>
+            <GoBack />
+            <div className={s.inputWrapper}>
+                <SearchInput    
+                    search={search}
+                    setSearch={handleSearch}
+                />
+                {isPending && <Loading />}
             </div>
-            <div className={s.tableContainer}>
-                {filteredData ? 
-                    filteredData.length ? 
-                    <CountriesTable 
-                        filteredCountries={filteredData}
-                    /> : <h2>No such country found</h2>
-                    : <h2>The page is empty</h2>
+            <div className={s.filteredCountries}>
+                {filteredData?.length ? 
+                    filteredData.map(country => 
+                        <FilteredCountryItem 
+                            key={country.id}
+                            country={country}
+                            showCountryPopup={showCountryPopup}
+                        />
+                    ) : <h2>Is empty</h2>
                 }
             </div>
         </section>
-        {openAdd && <AddPopup />}
-        {openEdit && <EditPopup countryData={countryData} />}
+        {country && <CountryDetailsPopup 
+            country={country} 
+            closeCountryPopup={closeCountryPopup}
+        />}
         </>
     );
 }
