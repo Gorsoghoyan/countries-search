@@ -3,12 +3,12 @@ import FilteredCountryItem from "../../Components/FilteredCountryItem";
 import GoBack from "../../Components/goBack";
 import Loading from "../../Components/Loading";
 import SearchInput from "../../Components/SearchInput";
-import useDashboard from "../../CustomHook/useDashboard";
+import useCountries from "../../CustomHook/useCountries";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
-function DashboardPage () {
-    const { countries, country, nodeRef, closeCountryPopup, showCountryPopup } = useDashboard();
+function Countries () {
+    const { countries, country, nodeRef, closeCountryPopup, showCountryPopup } = useCountries();
     const { filteredData, isPending, search, handleSearch } = useSearch(countries);
 
     return (
@@ -42,4 +42,4 @@ function DashboardPage () {
     );
 }
 
-export default DashboardPage;
+export default Countries;

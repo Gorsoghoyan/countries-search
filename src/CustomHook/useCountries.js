@@ -4,7 +4,7 @@ import { getCountries } from "../Redux/actions";
 import { selectCountries } from "../Redux/selections";
 import useScrollHistory from "./useScrollHistory";
 
-const useDashboard = () => {
+const useCountries = () => {
     const [ countries, setCountries ] = useState(null);
     const [ country, setCountry ] = useState(null);
     const countriesData = useSelector(selectCountries);
@@ -40,4 +40,4 @@ const useDashboard = () => {
     };
 };
 
-export default useDashboard;
+export default useCountries;

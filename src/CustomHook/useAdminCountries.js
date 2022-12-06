@@ -5,7 +5,7 @@ import { selectCountries, selectPopup } from "../Redux/selections";
 import { openAddPopup } from "../Redux/setter";
 import useScrollHistory from "./useScrollHistory";
 
-const useHome = () => {
+const useAdminCountries = () => {
     const [ countries, setCountries ] = useState(null);
     const { openAdd, openEdit, countryData } = useSelector(selectPopup);
     const countriesData = useSelector(selectCountries);
@@ -34,4 +34,4 @@ const useHome = () => {
     };  
 };
 
-export default useHome;
+export default useAdminCountries;

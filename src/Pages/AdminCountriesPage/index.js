@@ -3,12 +3,12 @@ import SearchInput from "../../Components/SearchInput";
 import Loading from "../../Components/Loading";
 import AddPopup from "../../Components/AddPopup";
 import EditPopup from "../../Components/EditPopup";
-import useHome from "../../CustomHook/useHome";
+import useAdminCountries from "../../CustomHook/useAdminCountries";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
-function HomePage () {
-    const { countries, openAdd, openEdit, countryData, nodeRef, handleAddPopup } = useHome();
+function AdminCountries () {
+    const { countries, openAdd, openEdit, countryData, nodeRef, handleAddPopup } = useAdminCountries();
     const { isPending, filteredData, search, handleSearch } = useSearch(countries);
 
     return (
@@ -40,4 +40,4 @@ function HomePage () {
     );
 }
 
-export default HomePage;
+export default AdminCountries;

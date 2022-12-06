@@ -3,7 +3,7 @@ import useAuth from "../../CustomHook/useAuth";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import s from "./styles.module.scss";
 
-function AuthPage () {
+function Auth () {
     const { error, inputRef, inputType, handleShowPassword, handleSubmit } = useAuth();
 
     return (
@@ -29,4 +29,4 @@ function AuthPage () {
     );
 }
 
-export default AuthPage;
+export default Auth;
