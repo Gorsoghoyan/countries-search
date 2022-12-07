@@ -1,33 +1,26 @@
 import { useSelector } from "react-redux";
 import { selectToken } from "../Redux/selections";
 import { GoSignOut, GoSignIn } from "react-icons/go";
+import { GiEarthAfricaEurope } from "react-icons/gi";
 import { MdDashboard } from "react-icons/md";
-import { AiFillHome } from "react-icons/ai";
+import { FiSettings } from "react-icons/fi";
+import { CgProfile } from "react-icons/cg";
 import { useEffect, useState } from "react";
 
 const publicNavConfig = [
-    { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
-    { text: "Sign in", icon: <GoSignIn />, link: "user/signin" }
+    { text: "Countries", icon: <GiEarthAfricaEurope />, link: "/countries" },
+    { text: "Sign in", icon: <GoSignIn />, link: "/signin" }
 ];
 
 const privateNavConfig = [
-    { text: "Home", icon: <AiFillHome />, link: "/web/countries" },
     { text: "Dashboard", icon: <MdDashboard />, link: "/admin/countries" },
+    { text: "Profile", icon: <CgProfile />, link: "/profile" },
     { text: "Sign out", icon: <GoSignOut /> }
 ];
 
 const useHeader = () => {
-    const [ navData, setNavData ] = useState();
     const [ active, setActive ] = useState(false);
     const token = useSelector(selectToken);
-
-    useEffect(() => {
-        if (token) {
-            setNavData(privateNavConfig);
-        } else {
-            setNavData(publicNavConfig);
-        }
-    }, [ token ]);
 
     const handleClick = () => {
         setActive(!active);
@@ -38,8 +31,8 @@ const useHeader = () => {
     };
 
     return {
-        navData,
         active,
+        token,
         closeNav,
         handleClick,
     };

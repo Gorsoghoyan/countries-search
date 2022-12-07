@@ -33,6 +33,24 @@
                 margin-right: 5px;
             }
         }
+
+        .settings {
+            position: relative;
+
+            &:hover {
+                .settingsDropDown {
+                    display: block;
+                }   
+            }
+        }
+
+        .settingsDropDown {
+            position: absolute;
+            top: 5.5vh;
+            right: 0;
+            background-color: red;
+            // display: none;
+        }
     }
 
     .menuIcon {

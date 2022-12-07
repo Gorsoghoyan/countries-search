@@ -1,6 +1,6 @@
 @import "../../variables.css";
 
-.homePage {
+.adminCountries {
     height: calc(100% - var(--headerHeight));
     overflow: auto;
     &::-webkit-scrollbar {
@@ -58,7 +58,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .homePage {
+    .adminCountries {
         .topContainer {
             flex-direction: column;
 

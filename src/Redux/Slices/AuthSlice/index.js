@@ -1,17 +1,19 @@
-import { DELETE_TOKEN, SET_TOKEN } from "../../actionTypes";
+import { USER_SIGN_OUT, USER_SIGN_IN } from "../../actionTypes";
 
-const token = localStorage.getItem('token') || false;
+const token = localStorage.getItem('user')  ? true : false;
+const userName = JSON.parse(localStorage.getItem('user'))?.userName || "";
 
 const initialState = {
-    token
+    token,
+    userName,
 };
 
 function authReducer (state = initialState, action) {
     switch (action.type) {
-        case SET_TOKEN :
-            return { ...state, token: true };
-        case DELETE_TOKEN :
-            return { ...state, token: false };
+        case USER_SIGN_IN :
+            return { ...state, token: true, userName: action.payload };
+        case USER_SIGN_OUT :
+            return { ...state, token: false, userName: "" };
         default :
             return state;
     }

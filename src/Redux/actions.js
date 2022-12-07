@@ -1,5 +1,5 @@
 import { countriesData } from "../fakeData/countries";
-import { deleteToken, setCountries, setToken } from "./setter";
+import { deleteUserData, setCountries, setUserData } from "./setter";
 
 export const getCountries = () => {
     const json = localStorage.getItem('countriesData');
@@ -43,16 +43,19 @@ export const deleteCountry = (id) => {
     return (dispatch) => dispatch(setCountries(newCountries));
 };
 
-export const userSignIn = () => {
-    localStorage.setItem("token", Date.now()); 
+export const userSignIn = (userName) => {
+    localStorage.setItem("user", JSON.stringify({
+        token: Date.now(),
+        userName,
+    })); 
 
-    return (dispatch) => dispatch(setToken());
+    return (dispatch) => dispatch(setUserData(userName));
 };
 
 export const userSignOut = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("user");
 
-    return (dispatch) => dispatch(deleteToken());
+    return (dispatch) => dispatch(deleteUserData());
 };
 
 export const editCountryData = (id, editedCountry) => {

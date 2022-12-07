@@ -1,0 +1,23 @@
+@import "../../variables.css";
+
+.error {    
+    height: calc(100% - var(--headerHeight));
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .textArea {
+        text-align: center;
+        color: rgb(57, 57, 57);
+
+        h2 {
+            &:nth-child(1) {
+                font-size: 200px; 
+            }
+            &:nth-child(2) {
+                font-size: 80px;
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
-export const SET_TOKEN = "SET_TOKEN";
-export const DELETE_TOKEN = "DELETE_TOKEN";
-
 export const SET_COUNTRIES_DATA = "SET_COUNTRIES_DATA";
 
 export const OPEN_ADD_POPUP = "OPEN_ADD_POPUP";
 export const CLOSE_ADD_POPUP = "CLOSE_ADD_POPUP";
 export const OPEN_EDIT_POPUP = "OPEN_EDIT_POPUP";
 export const CLOSE_EDIT_POPUP = "CLOSE_EDIT_POPUP";
+
+export const USER_SIGN_IN = "USER_SIGN_IN";
+export const USER_SIGN_OUT = "USER_SIGN_OUT";

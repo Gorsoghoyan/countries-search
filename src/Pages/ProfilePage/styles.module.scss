@@ -1,0 +1,10 @@
+@import "../../variables.css";
+
+.profile {
+    height: calc(100% - var(--headerHeight));
+    padding: 20px;
+
+    h2 {
+        font-size: 40px;
+    }
+}

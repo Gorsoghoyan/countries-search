@@ -8,13 +8,13 @@ import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
 function Countries () {
-    const { countries, country, nodeRef, closeCountryPopup, showCountryPopup } = useCountries();
+    const { countries, country, nodeRef, token, closeCountryPopup, showCountryPopup } = useCountries();
     const { filteredData, isPending, search, handleSearch } = useSearch(countries);
 
     return (
         <>
-        <section className={s.dashboardPage} ref={nodeRef}>
-            <GoBack />
+        <section className={s.countries} ref={nodeRef}>
+            {token && <GoBack />}
             <div className={s.inputWrapper}>
                 <SearchInput    
                     search={search}

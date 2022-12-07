@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../Redux/actions";
-import { selectCountries } from "../Redux/selections";
+import { selectCountries, selectToken } from "../Redux/selections";
 import useScrollHistory from "./useScrollHistory";
 
 const useCountries = () => {
     const [ countries, setCountries ] = useState(null);
     const [ country, setCountry ] = useState(null);
     const countriesData = useSelector(selectCountries);
+    const token = useSelector(selectToken);
     const nodeRef = useScrollHistory();
     const dispatch = useDispatch();
 
@@ -35,6 +36,7 @@ const useCountries = () => {
         countries,
         country,
         nodeRef,
+        token,
         closeCountryPopup,
         showCountryPopup
     };

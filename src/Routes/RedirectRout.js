@@ -7,7 +7,7 @@ const RedirectRoute = () => {
 
     return (token 
         ? <Navigate to="/admin/countries" /> 
-        : <Navigate to="/user/signin" />
+        : <Navigate to="/countries" />
     );
 };
 

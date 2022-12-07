@@ -28,10 +28,11 @@ const useAuth = () => {
         }
 
         for (let i = 0; i < users.length; i++) {
-            if (users[i].password === inputRef.current.value) {
+            const user = users[i];
+            if (user.password === inputRef.current.value) {
                 setError("");
-                dispatch(userSignIn());
-                navigate("/web/countries", { replace: true });
+                dispatch(userSignIn(user.password));
+                navigate("/admin/countries", { replace: true });
                 return;
             }
         }

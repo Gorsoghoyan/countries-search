@@ -13,7 +13,7 @@ function AdminCountries () {
 
     return (
         <>
-        <section className={s.homePage} ref={nodeRef}>
+        <section className={s.adminCountries} ref={nodeRef}>
             <div className={s.topContainer}>
                 <div className={s.inputWrapper}>
                     <SearchInput 
