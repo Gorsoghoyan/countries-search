@@ -1,43 +1,64 @@
-import { Link } from "react-router-dom";
-import { GoSignOut } from "react-icons/go";
-import { CgProfile } from "react-icons/cg";
+import { Link, useNavigate } from "react-router-dom";
+import { IoIosArrowUp } from "react-icons/io";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userSignOut } from "../../Redux/actions";
 import s from "./styles.module.scss";
+import c from "classnames";
 
-function NavItem ({ icon, text, link, closeNav }) {
+function NavItem ({ title, icon, path, children, closeNav }) {
+    const [ openChildren, setOpenChildren ] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleCloseNav = () => {
         window.innerWidth < 1024 && closeNav();
     };
 
-    if (text === "Settings") {
+    const handleSignOut = () => {
+        dispatch(userSignOut());
+        setTimeout(() => navigate("/countries"), 0)
+    };  
+
+    if (!children) {
         return (
-            <div 
-                className={`${s.navItem} ${s.settings}`} 
-                onClick={() => {
-                    handleCloseNav();
-                }
-            }>
+            <Link to={path} className={s.navItem} onClick={() => {
+                setOpenChildren(false);
+                handleCloseNav();
+            }}>
                 {icon}
-                <span>{text}</span>
-                <div className={s.settingsDropDown}>
-                    <Link to="/profile">
-                        <CgProfile />
-                        Profile
-                    </Link>
-                    <p>
-                        <GoSignOut />
-                        Log out
-                    </p>
-                </div>
-            </div>
+                <span>{title}</span>  
+            </Link>
         );
     }
 
+
     return (
-        <Link className={s.navItem} to={link} onClick={handleCloseNav}>
+        <div className={s.navItem} onClick={() => {
+            setOpenChildren(!openChildren);
+        }}>
             {icon}
-            <span>{text}</span>
-        </Link>
+            <span>{title}</span>
+            <IoIosArrowUp className={c(s.arrowTop, { [s.active]: openChildren })} />
+            {children &&
+                <div className={c(s.children, { [s.active]: openChildren })} onClick={handleCloseNav}>
+                {children.map((item, index) => 
+                    <Link 
+                        key={index} 
+                        className={s.childItem} 
+                        to={item.path} 
+                        onClick={() => {
+                            handleCloseNav();
+                            if (item.type === "signout") handleSignOut();
+                        }}
+                    >
+                        {item.icon}
+                        <span>{item.title}</span>
+                    </Link>
+                )}
+                </div>
+            }
+        </div>
     );
 }
 

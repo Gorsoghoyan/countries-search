@@ -16,9 +16,6 @@ const MainRoutes = () => {
     return (
         <Routes>
             <Route index path="/" element={<RedirectRoute />} />
-
-            <Route path="/" element={<ComponentRoutes />}>
-            </Route>
             
             <Route path="/" element={<PrivateRoutes />}>
                 <Route path="profile" element={<Profile />} />
@@ -27,7 +24,7 @@ const MainRoutes = () => {
             
             <Route path="/" element={<PublicRoutes />}>
                 <Route path="signin" element={<Auth />} />
-                <Route path="/countries" element={<Countries />} />
+                <Route path="countries" element={<Countries />} />
             </Route>
 
             <Route path="/" element={<ErrorRoute />}>

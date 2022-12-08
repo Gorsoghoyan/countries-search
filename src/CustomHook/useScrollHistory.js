@@ -5,7 +5,7 @@ const useScrollHistory = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            sessionStorage.setItem(window.location.pathname, nodeRef.current.scrollTop);
+            sessionStorage.setItem(window.location.pathname, nodeRef.current?.scrollTop);
         };
         nodeRef.current.addEventListener("scroll", handleScroll);
     }, []);
