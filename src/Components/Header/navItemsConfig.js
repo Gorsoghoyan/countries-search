@@ -1,5 +1,5 @@
 import { GiEarthAfricaEurope } from "react-icons/gi";
-import { MdDashboard } from "react-icons/md";
+import { MdDashboard, MdManageAccounts } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { GoSignOut, GoSignIn } from "react-icons/go";
 import { FiSettings } from "react-icons/fi";
@@ -19,6 +19,11 @@ export const publicItems = [
 ];  
 
 export const privateItems = [
+    {
+        title: "Accounts",
+        icon: <MdManageAccounts />,
+        path: "/admin/accounts"
+    },
     {
         title: "Dashboard",
         icon: <MdDashboard />,

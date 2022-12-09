@@ -3,11 +3,13 @@ import { IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userSignOut } from "../../Redux/actions";
+import useClickOutSide from "../../CustomHook/useClickOutSide";
 import s from "./styles.module.scss";
 import c from "classnames";
 
 function NavItem ({ title, icon, path, children, closeNav }) {
     const [ openChildren, setOpenChildren ] = useState(false);
+    const nodeRef = useClickOutSide(() => setOpenChildren(false));
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,10 +24,7 @@ function NavItem ({ title, icon, path, children, closeNav }) {
 
     if (!children) {
         return (
-            <Link to={path} className={s.navItem} onClick={() => {
-                setOpenChildren(false);
-                handleCloseNav();
-            }}>
+            <Link to={path} className={s.navItem} onClick={handleCloseNav}>
                 {icon}
                 <span>{title}</span>  
             </Link>
@@ -34,7 +33,7 @@ function NavItem ({ title, icon, path, children, closeNav }) {
 
 
     return (
-        <div className={s.navItem} onClick={() => {
+        <div ref={nodeRef} className={s.navItem} onClick={() => {
             setOpenChildren(!openChildren);
         }}>
             {icon}

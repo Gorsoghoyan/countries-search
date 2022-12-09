@@ -30,7 +30,7 @@ function AdminCountries () {
                     <CountriesTable 
                         filteredCountries={filteredData}
                     /> : <h2>No such country found</h2>
-                    : <h2>The page is empty</h2>
+                    : <h2>Loading...</h2>
                 }
             </div>
         </section>

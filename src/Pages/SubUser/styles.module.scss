@@ -1,3 +1,45 @@
+@import "../../variables.css";
+
 .subUser {
-    
+    min-height: calc(100% - var(--headerHeight));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        width: 600px;
+        padding: 20px;
+        margin: 40px 0;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            font-size: 20px;
+            margin: 20px 0;
+            &::placeholder {
+                font-size: 20px;
+                color: black;
+            }
+        }
+
+        button {
+            width: 30%;
+            padding: 13px;
+            border: none;
+            outline: none;
+            margin-top: 20px;
+            background: var(--blue);
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
 }
