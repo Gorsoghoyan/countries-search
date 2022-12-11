@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
 import Auth from "../Pages/AuthPage";
-import SubUser from "../Pages/SubUser";
 import Error from "../Pages/ErrorPage";
 import Accounts from "../Pages/Accounts";
 import Profile from "../Pages/ProfilePage";
@@ -22,7 +21,6 @@ const MainRoutes = () => {
             <Route path="/" element={<PrivateRoutes />}>
                 <Route path="profile" element={<Profile />} />
                 <Route path="admin/countries" element={<AdminCountries />} />
-                <Route path="/add-user" element={<SubUser />} />
                 <Route path="admin/accounts" element={<Accounts />} />
             </Route>    
             

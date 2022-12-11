@@ -1,12 +1,12 @@
 import s from "./styles.module.scss";
 
-function SearchInput ({ search, setSearch }) {    
+function SearchInput ({ search, setSearch, placeholder }) {    
 
     return (
         <input 
             className={s.input}
             type="search"
-            placeholder="Search by country name"
+            placeholder={placeholder}
             autoFocus={true}
             value={search}
             onChange={e => setSearch(e.target.value)}

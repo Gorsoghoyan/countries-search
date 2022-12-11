@@ -5,18 +5,26 @@ import { openEditPopup } from "../Redux/setter";
 const useTable = () => {
     const dispatch = useDispatch();
     
-    const onChange = (evt, id) => dispatch(changeCountryCheckbox(evt, id));
+    const onChangeCountry = (evt, id) => dispatch(changeCountryCheckbox(evt, id));
 
-    const onDelete = (id) => dispatch(deleteCountry(id));
+    const onDeleteCountry = (id) => dispatch(deleteCountry(id));
 
-    const onEdit = (country) => {
+    const onEditCountry = (country) => {
         dispatch(openEditPopup(country));
     };
 
+    const onDeleteUser = () => {
+    };
+
+    const onEditUser = () => {
+    };
+
     return {
-        onChange,
-        onDelete,
-        onEdit
+        onChangeCountry,
+        onDeleteCountry,
+        onEditCountry,
+        onDeleteUser,
+        onEditUser
     };
 };
 

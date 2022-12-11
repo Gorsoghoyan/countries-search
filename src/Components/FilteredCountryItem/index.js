@@ -1,10 +1,10 @@
 import s from "./styles.module.scss";
 
-function FilteredCountryItem ({ country, showCountryPopup }) {
+function FilteredCountryItem ({ country, openPopup }) {
     return (
         <div 
             className={s.filteredItem} 
-            onClick={() => showCountryPopup(country)}
+            onClick={() => openPopup(country)}
         >
             <p>{country.name}</p>
         </div>

@@ -1,9 +1,9 @@
+import { editCountryData } from "../../../Redux/actions";
+import { closeEditPopup } from "../../../Redux/setter";
 import { useDispatch } from "react-redux";
-import { editCountryData } from "../../Redux/actions";
-import { closeEditPopup } from "../../Redux/setter";
 import PopupTemplate from "../PopupTemplate";
 
-function EditPopup ({ countryData }) {
+function EditPopup ({ country }) {
     const dispatch = useDispatch();
 
     const handleClose = () => {
@@ -18,7 +18,7 @@ function EditPopup ({ countryData }) {
         <PopupTemplate 
             type="Edit"
             title="Edit country"
-            country={countryData}
+            country={country}
             onClose={handleClose}
             onSetData={handleSetData}
         />

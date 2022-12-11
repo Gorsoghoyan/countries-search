@@ -1,0 +1,62 @@
+
+.container {
+    position: relative;
+    width: 80%;
+    max-height: 75vh;
+    background: white;
+    padding: 0 20px;
+    margin: 40px 0;
+    border-radius: 10px;
+    overflow-y: auto;
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    h2 {
+        width: max-content;
+        margin: 20px auto;
+        font-size: 40px;
+    }
+
+    p {
+        margin: 40px 0;
+        font-size: 28px;
+
+        span {
+            font-size: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        p {
+            font-size: 23;
+
+            span {
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 598px) {
+    .container {
+        p {
+            font-size: 18px;
+
+            span {
+                font-size: 20px;
+                display: block;
+            }
+        }
+    }
+}

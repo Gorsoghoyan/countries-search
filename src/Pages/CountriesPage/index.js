@@ -1,4 +1,3 @@
-import CountryDetailsPopup from "../../Components/CountryDetailsPopup";
 import FilteredCountryItem from "../../Components/FilteredCountryItem";
 import GoBack from "../../Components/goBack";
 import Loading from "../../Components/Loading";
@@ -8,11 +7,10 @@ import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
 
 function Countries () {
-    const { countries, country, nodeRef, token, closeCountryPopup, showCountryPopup } = useCountries();
+    const { countries, nodeRef, token, openPopup } = useCountries();
     const { filteredData, isPending, search, handleSearch } = useSearch(countries);
 
     return (
-        <>
         <section className={s.countries} ref={nodeRef}>
             {token && <GoBack />}
             <div className={s.inputWrapper}>
@@ -28,17 +26,12 @@ function Countries () {
                         <FilteredCountryItem 
                             key={country.id}
                             country={country}
-                            showCountryPopup={showCountryPopup}
+                            openPopup={openPopup}
                         />
                     ) : <h2>Is empty</h2>
                 }
             </div>
         </section>
-        {country && <CountryDetailsPopup 
-            country={country} 
-            closeCountryPopup={closeCountryPopup}
-        />}
-        </>
     );
 }
 

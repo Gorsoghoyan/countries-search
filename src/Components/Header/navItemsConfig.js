@@ -20,11 +20,6 @@ export const publicItems = [
 
 export const privateItems = [
     {
-        title: "Accounts",
-        icon: <MdManageAccounts />,
-        path: "/admin/accounts"
-    },
-    {
         title: "Dashboard",
         icon: <MdDashboard />,
         path: "/admin/countries"
@@ -39,10 +34,9 @@ export const privateItems = [
                 path: "/profile"
             },
             {
-                title: "Add user",
-                icon: <AiOutlineUserAdd />,
-                path: "/add-user",
-                type: "adduser"
+                title: "Accounts",
+                icon: <MdManageAccounts />,
+                path: "/admin/accounts"
             },
             {
                 title: "Sign out",

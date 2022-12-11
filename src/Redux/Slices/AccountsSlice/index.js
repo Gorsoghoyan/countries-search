@@ -1,9 +1,9 @@
 
 const initialState = {
-
+    data: []
 };
 
-function subUserReducer (state = initialState, action) {
+function accountsReducer (state = initialState, action) {
     switch (action.type) {
         
         default :
@@ -11,4 +11,4 @@ function subUserReducer (state = initialState, action) {
     }
 }
 
-export default subUserReducer;
+export default accountsReducer;

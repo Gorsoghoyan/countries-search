@@ -1,6 +1,6 @@
+import { addNewCountry } from "../../../Redux/actions";
+import { closeAddPopup } from "../../../Redux/setter";
 import { useDispatch } from "react-redux";
-import { addNewCountry } from "../../Redux/actions";
-import { closeAddPopup } from "../../Redux/setter";
 import PopupTemplate from "../PopupTemplate";
 
 function AddPopup () {

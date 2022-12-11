@@ -2,7 +2,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { AiFillEdit } from "react-icons/ai";
 import s from "./styles.module.scss";
 
-const TableRow = ({ country, onChange, onDelete, onEdit }) => {
+const CountryRow = ({ country, onChange, onDelete, onEdit }) => {
     return (
         <tr>
             <td className={s.name}>{country.name}</td>
@@ -21,4 +21,4 @@ const TableRow = ({ country, onChange, onDelete, onEdit }) => {
     );
 };
 
-export default TableRow;
+export default CountryRow;

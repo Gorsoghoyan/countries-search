@@ -1,21 +1,21 @@
 import { useEffect, useState, useTransition } from "react";
 
-export const useSearch = (countries) => {
+export const useSearch = (data) => {
     const [ search, setSearch ] = useState("");
     const [ filteredData, setFilteredData ] = useState(null);
     const [ isPending, startTransition ] = useTransition();
 
     useEffect(() => {
-        if (!countries?.length) return;
-        if (!search.length) return setFilteredData(countries);
-        setFilteredData(countries.filter(country => 
-            country.name.toLowerCase().includes(search.toLowerCase().trim())
+        if (!data?.length) return;
+        if (!search.length) return setFilteredData(data);
+        setFilteredData(data.filter(item => 
+            item.name.toLowerCase().includes(search.toLowerCase().trim())
         ));
     }, [ search ]);
 
     useEffect(() => {
-        countries && setFilteredData(countries);
-    }, [ countries ]);
+        data?.length && setFilteredData(data);
+    }, [ data ]);
 
     const handleSearch = (value) => {
         startTransition(() => {
@@ -26,6 +26,7 @@ export const useSearch = (countries) => {
     return {
         filteredData,
         isPending,
+        search,
         handleSearch
     };  
 };
