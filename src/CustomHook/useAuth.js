@@ -1,13 +1,17 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { users } from "../fakeData/users";
 import { userSignIn } from "../Redux/actions";
 
 const useAuth = () => {
+    const [ userData, setUserData ] = useState({
+        userName: "",
+        email: "",
+        password: ""
+    });
     const [ inputType, setInputType ] = useState("password");
     const [ error, setError ] = useState("");
-    const inputRef = useRef(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -21,17 +25,22 @@ const useAuth = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        const { userName, email, password } = userData;
 
-        if (!inputRef.current.value) {
-            setError("Please fill in the input");
+        if (!userName || !email || !password) {
+            setError("Please fill in the inputs");
             return;
         }
 
         for (let i = 0; i < users.length; i++) {
             const user = users[i];
-            if (user.password === inputRef.current.value) {
+            if (
+                user.password === password && 
+                user.email === email && 
+                user.userName === userName
+            ) {
                 setError("");
-                dispatch(userSignIn(user.password));
+                dispatch(userSignIn(user.userName));
                 navigate("/admin/countries", { replace: true });
                 return;
             }
@@ -40,10 +49,18 @@ const useAuth = () => {
         setError("Incorrect password");
     };
 
+    const handleUserData = (name, value) => {
+        setUserData({
+            ...userData,
+            [name]: value
+        });
+    };
+
     return {
         error,
-        inputRef,
         inputType,
+        userData,
+        handleUserData,
         handleShowPassword,
         handleSubmit
     };

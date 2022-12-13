@@ -1,6 +1,6 @@
 @import "../../../variables.css";
 
-form {
+.form {
     background: white;
     position: relative;
     width: 60%;
@@ -62,9 +62,7 @@ form {
 }
 
 @media screen and (max-width: 1024px) {
-    .popup {
-        form {
-            width: 90%;
-        }
+    .form {
+        width: 90%;
     }
 }

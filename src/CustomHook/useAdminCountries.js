@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries } from "../Redux/actions";
 import { selectCountries } from "../Redux/selections";
-import { openAddPopup } from "../Redux/setter";
+import { openAddCountryPopup } from "../Redux/setter";
 import useScrollHistory from "./useScrollHistory";
 
 const useAdminCountries = () => {
@@ -20,7 +20,7 @@ const useAdminCountries = () => {
     }, [ countriesData ]);
 
     const handleAddPopup = () => {
-        dispatch(openAddPopup());  
+        dispatch(openAddCountryPopup());  
     };
 
     return {

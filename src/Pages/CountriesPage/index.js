@@ -17,6 +17,7 @@ function Countries () {
                 <SearchInput    
                     search={search}
                     setSearch={handleSearch}
+                    placeholder="Search by country name"
                 />
                 {isPending && <Loading />}
             </div>

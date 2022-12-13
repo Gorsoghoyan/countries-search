@@ -1,13 +1,13 @@
 import { editCountryData } from "../../../Redux/actions";
-import { closeEditPopup } from "../../../Redux/setter";
 import { useDispatch } from "react-redux";
-import PopupTemplate from "../PopupTemplate";
+import { closeEditCountryPopup } from "../../../Redux/setter";
+import AddAndEditCountryTemplate from "../AddAndEditCountryTemplate";
 
-function EditPopup ({ country }) {
+function EditCountry ({ country }) {
     const dispatch = useDispatch();
 
     const handleClose = () => {
-        dispatch(closeEditPopup());
+        dispatch(closeEditCountryPopup());
     };  
 
     const handleSetData = (id, editedCountry) => {
@@ -15,7 +15,7 @@ function EditPopup ({ country }) {
     };
 
     return (
-        <PopupTemplate 
+        <AddAndEditCountryTemplate 
             type="Edit"
             title="Edit country"
             country={country}
@@ -25,4 +25,4 @@ function EditPopup ({ country }) {
     );
 }
 
-export default EditPopup;
+export default EditCountry;

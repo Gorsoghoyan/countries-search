@@ -1,13 +1,13 @@
 import { addNewCountry } from "../../../Redux/actions";
-import { closeAddPopup } from "../../../Redux/setter";
 import { useDispatch } from "react-redux";
-import PopupTemplate from "../PopupTemplate";
+import { closeAddCountryPopup } from "../../../Redux/setter";
+import AddAndEditCountryTemplate from "../AddAndEditCountryTemplate";
 
-function AddPopup () {
+function AddCountry () {
     const dispatch = useDispatch();
 
     const handleClose = () => {
-        dispatch(closeAddPopup());
+        dispatch(closeAddCountryPopup());
     };
 
     const handleSetData = (newCountry) => {
@@ -15,7 +15,7 @@ function AddPopup () {
     };
 
     return (
-        <PopupTemplate 
+        <AddAndEditCountryTemplate 
             type="Add"
             title="Add country"
             onClose={handleClose}
@@ -24,4 +24,4 @@ function AddPopup () {
     );
 }
 
-export default AddPopup;
+export default AddCountry;

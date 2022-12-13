@@ -10,13 +10,13 @@ const initialCountry = {
     description: "",
 };
 
-function PopupTemplate ({ country=initialCountry, type, onClose, onSetData, title }) {
+function AddAndEditCountryTemplate ({ country=initialCountry, type, onClose, onSetData, title }) {
     const { nodeRef, data, handleSetData, handleSubmit } = usePopupTeplate(
         country, onClose, onSetData, type
     );
  
     return (
-        <form onSubmit={handleSubmit} ref={nodeRef}>
+        <form className={s.form} onSubmit={handleSubmit} ref={nodeRef}>
             <h2>{title}</h2>
             {popupItemsConfig.map((item, index) => 
                 <PopupItem 
@@ -35,4 +35,4 @@ function PopupTemplate ({ country=initialCountry, type, onClose, onSetData, titl
     );
 }
 
-export default PopupTemplate;
+export default AddAndEditCountryTemplate;

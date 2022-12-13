@@ -26,21 +26,20 @@
         margin: 20px 0;
 
         input {
-            width: 50%;
+            width: 45%;
         }
 
         button {
-            width: 150px;
-            background: var(--blue);
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-            margin-left: 20px;
-            margin-top: auto;
             border: none;
             outline: none;
+            background: var(--blue);
+            color: white;
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-left: 40px;
+            border-radius: 5px;
+            margin-top: auto;
             cursor: pointer;
-            font-size: 17px;
             display: flex;
             align-items: center;
             justify-content: center;

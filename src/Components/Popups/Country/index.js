@@ -4,7 +4,7 @@ import { closeCountryPopup } from "../../../Redux/setter";
 import useClickOutSide from "../../../CustomHook/useClickOutSide";
 import s from "./styles.module.scss";
 
-function CountryPopup ({ country }) {
+function Country ({ country }) {
     const dispatch = useDispatch();
 
     const onClosePopup = () => {
@@ -31,4 +31,4 @@ function CountryPopup ({ country }) {
     );
 }
 
-export default CountryPopup;
+export default Country;
