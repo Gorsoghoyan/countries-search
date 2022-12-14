@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { permissionsConfig } from "../Components/Popups/AddSubUser/permissionsConfig";
 import { users } from "../fakeData/users";
+import { addNewSubUser } from "../Redux/actions";
 import { closeAddSubUserPopup } from "../Redux/setter";
 import useClickOutSide from "./useClickOutSide";
 
@@ -47,8 +48,7 @@ const useAddSubUser = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        const subUsers = localStorage.getItem("sub-users");
-        const accounts = subUsers && JSON.stringify(subUsers).accounts;
+        const subUsers = JSON.parse(localStorage.getItem("sub-users")) || false;
         const { userName, email, password } = userData;
 
         if (!userName || !email || !password) {
@@ -59,22 +59,20 @@ const useAddSubUser = () => {
         for (let i = 0; i < users.length; i++) {
             const user = users[i];
             if (
-                user.password === password && 
-                user.email === email && 
-                user.userName === userName
+                user.password === password ||
+                user.email === email 
             ) {
                 setError("Such an account already exist");
                 return;
             }
         }
 
-        if (accounts) {
-            for (let i = 0; i < accounts.length; i++) {
-                const account = accounts[i];
+        if (subUsers) {
+            for (let i = 0; i < subUsers.length; i++) {
+                const subUser = subUsers[i];
                 if (
-                    account.password === password && 
-                    account.email === email && 
-                    account.userName === userName
+                    subUser.data.password === password || 
+                    subUser.data.email === email
                 ) {
                     setError("Such an account already exist");
                     return;
@@ -82,7 +80,17 @@ const useAddSubUser = () => {
             }
         }
 
-        
+        dispatch(closeAddSubUserPopup());
+
+        const permissionsObj = permissions.reduce((aggr, item) => {
+            aggr[item.name] = item.isChecked;
+            return aggr;
+        }, {});
+
+        dispatch(addNewSubUser({
+            permissions: permissionsObj,
+            data: userData
+        }));
     };
 
     const onClose = () => {

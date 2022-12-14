@@ -7,8 +7,8 @@ import Table from "../../Components/Table";
 import s from "./styles.module.scss";
 
 function Accounts () {
-    const { accounts, openSubUserPopup } = useAccounts();
-    const { filteredData, search, handleSearch } = useSearch(accounts);
+    const { subUsers, openSubUserPopup } = useAccounts();
+    const { filteredData, search, handleSearch } = useSearch(subUsers, "subUsers");
 
     return (
         <section className={s.accounts}>
@@ -23,7 +23,7 @@ function Accounts () {
                 </button>
             </div>
             <div className={s.usersContainer}>
-                {filteredData ?
+                {filteredData?.length ?
                     <Table 
                         type="users"
                         column={column}

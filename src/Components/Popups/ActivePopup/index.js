@@ -10,13 +10,12 @@ function ActivePopup () {
     const { addCountry, editCountry, country, activePopup, addSubUser } = useSelector(selectPopup);
 
     return (
-        true &&
+        activePopup.open &&
         <div className={s.popupContainer}>
             {addCountry.open && <AddCountry />}
             {editCountry.open && <EditCountry country={editCountry.data} />}
             {country.open && <Country country={country.data} />}
-            {/* {addSubUser.open && <AddSubUser />} */}
-            <AddSubUser />
+            {addSubUser.open && <AddSubUser />}
         </div>
     );
 }

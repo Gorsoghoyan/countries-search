@@ -1,6 +1,6 @@
 import { useEffect, useState, useTransition } from "react";
 
-export const useSearch = (data) => {
+export const useSearch = (data, type) => {
     const [ search, setSearch ] = useState("");
     const [ filteredData, setFilteredData ] = useState(null);
     const [ isPending, startTransition ] = useTransition();
@@ -8,13 +8,19 @@ export const useSearch = (data) => {
     useEffect(() => {
         if (!data?.length) return;
         if (!search.length) return setFilteredData(data);
+        if (type === "subUsers") {
+            setFilteredData(data.filter(item => 
+                item.data.userName.toLowerCase().includes(search.toLowerCase().trim())
+            ));
+            return;
+        }
         setFilteredData(data.filter(item => 
             item.name.toLowerCase().includes(search.toLowerCase().trim())
         ));
     }, [ search ]);
 
     useEffect(() => {
-        data?.length && setFilteredData(data);
+        data && setFilteredData(data);
     }, [ data ]);
 
     const handleSearch = (value) => {

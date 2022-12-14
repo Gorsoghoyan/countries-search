@@ -1,14 +1,11 @@
 import useTable from "../../CustomHook/useTable";
 import TableHeadItem from "./TableHeadItem";
 import CountryRow from "./CountryRow";
-import UserRow from "./UserRow";
+import SubUserRow from "./SubUserRow";
 import s from "./styles.module.scss";
 
 function Table ({ data, column, type }) {
-    const { 
-        onChangeCountry, onDeleteCountry, onEditCountry,
-        onEditUser, onDeleteUser
-    } = useTable();
+    const { onChangeCountry, onDeleteCountry, onEditCountry, onEditUser, onDeleteUser } = useTable();
 
     return (
         <table border="1" className={s.table}>
@@ -30,9 +27,11 @@ function Table ({ data, column, type }) {
                     />)
                 }
                 {type === "users" && 
-                    data?.map(user => <UserRow
-                        key={user.id}
-                        user={user}
+                    data?.map(subUser => <SubUserRow
+                        key={subUser.id}
+                        id={subUser.id}
+                        data={subUser.data}
+                        permissions={subUser.permissions}
                         onDelete={onDeleteUser}
                         onEdit={onEditUser}
                     />) 

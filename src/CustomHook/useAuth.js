@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { users } from "../fakeData/users";
-import { userSignIn } from "../Redux/actions";
+import { subUserSignIn, userSignIn } from "../Redux/actions";
 
 const useAuth = () => {
     const [ userData, setUserData ] = useState({
@@ -12,6 +12,7 @@ const useAuth = () => {
     });
     const [ inputType, setInputType ] = useState("password");
     const [ error, setError ] = useState("");
+    const subUsers = JSON.parse(localStorage.getItem("sub-users"));
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -43,6 +44,22 @@ const useAuth = () => {
                 dispatch(userSignIn(user.userName));
                 navigate("/admin/countries", { replace: true });
                 return;
+            }
+        }
+
+        if (subUsers?.length) {
+            for (let i = 0; i < subUsers.length; i++) {
+                const subUser = subUsers[i];
+                if (
+                    subUser.data.password === password && 
+                    subUser.data.email === email && 
+                    subUser.data.userName === userName
+                ) {
+                    setError("");
+                    dispatch(subUserSignIn(subUser));
+                    navigate("/admin/countries", { replace: true });
+                    return;
+                }
             }
         }
 

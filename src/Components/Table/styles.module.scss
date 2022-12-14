@@ -53,6 +53,33 @@
             }
         }
     }
+    
+    .subUserRow {
+        width: 40%;
+
+        .text {
+            font-size: 25px;
+            text-align: center;
+        }
+    }
+
+    .subUserActions {
+        width: 20%;
+
+        .flex {
+            justify-content: space-around;
+        }
+
+        svg {
+            cursor: pointer;
+            &:nth-child(1) {
+                color: black;
+            }
+            &:nth-child(2) {
+                color: red;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 869px) {

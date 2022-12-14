@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeCountryCheckbox, deleteCountry } from "../Redux/actions";
+import { changeCountryCheckbox, deleteCountry, deleteSubUser } from "../Redux/actions";
 import { openEditCountryPopup } from "../Redux/setter";
 
 const useTable = () => {
@@ -13,7 +13,8 @@ const useTable = () => {
         dispatch(openEditCountryPopup(country));
     };
 
-    const onDeleteUser = () => {
+    const onDeleteUser = (subUserId) => {
+        dispatch(deleteSubUser(subUserId));
     };
 
     const onEditUser = () => {

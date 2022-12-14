@@ -1,17 +1,18 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAccounts } from "../Redux/selections";
+import { selectSubUsers } from "../Redux/selections";
 import { openAddSubUserPopup } from "../Redux/setter";
 
 const useAccounts = () => {
-    const accounts = useSelector(selectAccounts);
+    const subUsers = useSelector(selectSubUsers);
     const dispatch = useDispatch();
 
     const openSubUserPopup = () => {
-        dispatch(openAddSubUserPopup());
+        dispatch(openAddSubUserPopup());    
     };
-
+    
     return {
-        accounts,
+        subUsers,
         openSubUserPopup
     };
 };
