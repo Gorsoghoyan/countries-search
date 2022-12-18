@@ -4,14 +4,23 @@ import Loading from "../../Components/Loading";
 import useAdminCountries from "../../CustomHook/useAdminCountries";
 import { useSearch } from "../../CustomHook/useSearch";
 import s from "./styles.module.scss";
+import { countriesData } from "../../fakeData/countries";
+import useInfiniteScrolling from "../../CustomHook/useInfiniteScrolling";
 
 function AdminCountries () {
     const { countries, nodeRef, handleAddPopup } = useAdminCountries();
     const { isPending, filteredData, search, handleSearch } = useSearch(countries);
+    const { data, currentRef } = useInfiniteScrolling(40, countriesData);
 
     return (
-        <section className={s.adminCountries} ref={nodeRef}>
-            <div className={s.topContainer}>
+        <section className={s.adminCountries} ref={currentRef}>
+            {data?.map(item => 
+                <div>
+                    <span>{item.name}</span>
+                    <img src={`https://flagcdn.com/${item.code}.svg`} width="200" alt={item.name} />
+                </div>    
+            )}
+            {/* <div className={s.topContainer}>
                 <div className={s.inputWrapper}>
                     <SearchInput 
                         search={search}
@@ -35,7 +44,7 @@ function AdminCountries () {
                     /> : <h2>No such country found</h2>
                     : <h2>Loading...</h2>
                 }
-            </div>
+            </div> */}
         </section>
     );
 }

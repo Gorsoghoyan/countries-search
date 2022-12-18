@@ -8,7 +8,7 @@ import useScrollHistory from "./useScrollHistory";
 const useAdminCountries = () => {
     const [ countries, setCountries ] = useState(null);
     const countriesData = useSelector(selectCountries);
-    const nodeRef = useScrollHistory();
+    // const nodeRef = useScrollHistory();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const useAdminCountries = () => {
 
     return {
         countries,
-        nodeRef,
+        // nodeRef,
         handleAddPopup
     };  
 };
