@@ -1,40 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 
-const useInfiniteScrolling = (sizeNum, scrollingData) => {
-    const [ data, setData ] = useState([]);
-    const [ number, setNumber ] = useState(sizeNum);
-    const currentRef = useRef(null);
+const useInfiniteScrolling = ( displaySize, data ) => {  
+    const [ scrollingData, setScrollingData ] = useState([]);
+    const [ size, setSize ] = useState(displaySize);
 
     useEffect(() => {
-    const handleScroll = () => {
-        if (
-        document.documentElement.clientHeight + document.documentElement.scrollTop >= 
-        document.documentElement.scrollHeight / 1.3
-        ) {   
-        setNumber(prev => {
-            if (scrollingData.length < prev + sizeNum) {
-            currentRef.current?.removeEventListener("scroll", handleScroll);
-            return scrollingData.length;
+        if (!data) return;
+        const handleScroll = () => {
+            if (
+                document.documentElement.clientHeight + document.documentElement.scrollTop >= 
+                document.documentElement.scrollHeight / 1.3
+            ) {   
+                setSize(prev => {
+                    if (data.length < prev + displaySize) {
+                        window.removeEventListener("scroll", handleScroll);
+                        return data.length;
+                    }
+                    return prev + displaySize;
+                });
             }
-            return prev + sizeNum;
-        });
-        }
-    };
+        };
 
-    currentRef.current?.addEventListener("scroll", handleScroll);
-    
-    // return () => currentRef.current?.removeEventListener("scroll", handleScroll);
-    }, []);
+        window.addEventListener("scroll", handleScroll);
+        
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [ data ]);
 
     useEffect(() => {
-        if (number) {
-            setData([ ...scrollingData.slice(0, number) ]);
+        if (!data) return;
+        if (size) {
+            setScrollingData([ ...data.slice(0, size) ]);
         }
-    }, [ number ]);
+    }, [ size, data ]);
 
     return {
-        data, 
-        currentRef
+        scrollingData
     }
 };
 

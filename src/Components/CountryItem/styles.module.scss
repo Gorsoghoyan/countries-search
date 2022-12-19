@@ -1,0 +1,97 @@
+.countryItem {
+    position: relative;
+    min-height: 40vh;
+    background: rgb(28, 28, 28);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    padding-bottom: 25px;
+        &:hover {
+        box-shadow: 10px 10px 20px rgb(22, 22, 22);
+        .imgWrapper img {
+            transform: rotate(10deg) scale(1.3);
+        }
+        .actionsContainer {
+            visibility: visible;
+            opacity: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1), translate(0, 0);
+        }
+    }
+
+    .actionsContainer {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: scale(0), translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        background: rgba(0, 0, 0, 0.373);
+
+        div, label {
+            width: 150px;
+            padding: 5px 0;
+            border-radius: 10px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.65);
+            color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+
+            span {
+                margin-right: 5px;
+            }
+
+            .edit {
+                color: rgb(0, 94, 161);
+            }
+            
+            .delete {
+                color: rgb(113, 0, 0);
+            }
+        }
+    }
+
+    .countryName {
+        font-size: 25px;
+    }
+
+    .imgWrapper {
+        width: 100%;
+        height: 70%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            filter: grayscale(45%);
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    .done {
+        position: absolute;
+        left: 15px;
+        bottom: 10px;
+        font-size: 25px;
+        color: rgb(0, 169, 0);
+    }
+}

@@ -3,12 +3,13 @@ import useHeader from "../../CustomHook/useHeader";
 import NavItem from "./NavItem";
 import classnames from "classnames";
 import s from "./styles.module.scss";
+import c from "classnames";
 
 function Header () {
-    const { handleClick, closeNav, navItems, active } = useHeader();
+    const { handleClick, closeNav, isSticky, navItems, active } = useHeader();
 
     return (
-        <header className={s.header}>
+        <header className={c(s.header, { [s.sticky]: isSticky })}>
             <h1>Countries App</h1>
             <nav className={classnames({ [s.active]: active })}>
                 {navItems?.map((item, index) => 

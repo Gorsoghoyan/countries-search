@@ -1,23 +1,23 @@
 import { useEffect, useRef } from "react";
 
 const useScrollHistory = () => {
-    const nodeRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
-            sessionStorage.setItem(window.location.pathname, nodeRef.current?.scrollTop);
+            sessionStorage.setItem(window.location.pathname, document.documentElement.scrollTop);
         };
-        nodeRef.current.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
     }, []);
 
     useEffect(() => {
         const scrollPosition = sessionStorage.getItem(window.location.pathname);
-        setTimeout(() => {
-            nodeRef.current.scrollTop = scrollPosition || 0;
+        const target = setTimeout(() => {
+            document.documentElement.scrollTop = scrollPosition || 0;
         }, 1);
+
+        return () => clearTimeout(target);
     }, []);
 
-    return nodeRef;
 };
 
 export default useScrollHistory;

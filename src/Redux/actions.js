@@ -21,7 +21,7 @@ export const changeCountryCheckbox = (event, id) => {
 
     countriesDataFromLS.find(country => {
         if (country.id === id) {
-            country.checked = event.target.checked;
+            country.isChecked = event.target.checked;
             return true;
         }
         return false;
@@ -37,7 +37,7 @@ export const deleteCountry = (id) => {
     const countriesDataFromLS = JSON.parse(json);
 
     const newCountries = countriesDataFromLS.filter(country => country.id !== id);
-
+    console.log(id)
     localStorage.setItem("countriesData", JSON.stringify(newCountries));
 
     return (dispatch) => dispatch(setCountries(newCountries));

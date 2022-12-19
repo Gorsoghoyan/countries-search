@@ -1,5 +1,6 @@
 :root {
     --blue: #0558c5;
+    --black: rgb(34, 34, 34);
     
     --headerHeight: 80px;
 }
