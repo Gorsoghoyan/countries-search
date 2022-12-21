@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useInfiniteScrolling = ( displaySize, data ) => {  
     const [ scrollingData, setScrollingData ] = useState([]);
@@ -24,7 +24,7 @@ const useInfiniteScrolling = ( displaySize, data ) => {
         window.addEventListener("scroll", handleScroll);
         
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [ data ]);
+    }, [ data, displaySize ]);
 
     useEffect(() => {
         if (!data) return;

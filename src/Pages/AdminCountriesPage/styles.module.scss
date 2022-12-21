@@ -5,9 +5,13 @@
     padding: 40px;
     background: var(--black);
 
+    .searchContainer {
+        padding: 20px;
+    }
+
     .countriesContainer {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));    
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));    
         gap: 45px;
     }
 

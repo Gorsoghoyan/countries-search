@@ -6,7 +6,7 @@ import { publicItems, privateItems } from "../Components/Header/navItemsConfig";
 const useHeader = () => {
     const [ active, setActive ] = useState(false);
     const [ navItems, setNavItems ] = useState(null);
-    const [ isSticky, setIsSticky ] = useState(false);
+    const [ isSticky, setIsSticky ] = useState(window.scrollY);
     const token = useSelector(selectToken);
 
     useEffect(() => {
@@ -27,14 +27,17 @@ const useHeader = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log('scroll')
-            window.scrollY >= 150 ? setIsSticky(true) : setIsSticky(false);
+            if (window.scrollY > 0) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
         };
 
         window.addEventListener("scroll", handleScroll);
 
-        return window.removeEventListener("scroll", handleScroll);
-    }, []);
+        return () => window.removeEventListener("scroll", handleScroll);
+    });
 
     return {
         active,

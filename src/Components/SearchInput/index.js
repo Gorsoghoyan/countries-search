@@ -5,7 +5,7 @@ function SearchInput ({ search, setSearch, placeholder }) {
     return (
         <input 
             className={s.input}
-            type="search"
+            type="text"
             placeholder={placeholder}
             autoFocus={true}
             value={search}
