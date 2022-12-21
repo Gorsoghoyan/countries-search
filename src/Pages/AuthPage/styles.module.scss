@@ -2,7 +2,8 @@
 
 .authPage {
     position: relative;
-    min-height: calc(100% - var(--headerHeight));
+    min-height: calc(100vh - var(--headerHeight));
+    margin-top: var(--headerHeight);
     display: flex;
     justify-content: center;
     align-items: center;

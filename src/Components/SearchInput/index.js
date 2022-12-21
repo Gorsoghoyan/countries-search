@@ -1,7 +1,6 @@
 import s from "./styles.module.scss";
 
 function SearchInput ({ search, setSearch, placeholder }) {    
-
     return (
         <input 
             className={s.input}
