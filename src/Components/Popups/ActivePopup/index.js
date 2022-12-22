@@ -1,11 +1,11 @@
-import Country from "../Country";
+ import Country from "../Country";
 import AddCountry from "../AddCountry";
 import AddSubUser from "../AddSubUser";
 import EditCountry from "../EditCountry";
 import { useSelector } from "react-redux";
 import { selectPopup } from "../../../Redux/selections";
-import s from "./styles.module.scss";
 import { useEffect } from "react";
+import s from "./styles.module.scss";
 
 function ActivePopup () {
     const { addCountry, editCountry, country, activePopup, addSubUser } = useSelector(selectPopup);

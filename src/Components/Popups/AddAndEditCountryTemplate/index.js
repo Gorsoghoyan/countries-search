@@ -1,6 +1,7 @@
 import { GrClose } from "react-icons/gr"
-import usePopupTeplate from "../../../CustomHook/usePopupTemplate";
+import { AiOutlineUpload } from "react-icons/ai";
 import { popupItemsConfig } from "./popupItemsConfig";
+import usePopupTeplate from "../../../CustomHook/usePopupTemplate";
 import PopupItem from "./PopupItem";
 import s from "./styles.module.scss";
 
@@ -29,6 +30,14 @@ function AddAndEditCountryTemplate ({ country=initialCountry, type, onClose, onS
                     setData={handleSetData}
                 />    
             )}
+            <input 
+                type="file"
+                AiOutlineUpload{        id="upload_photo"
+            />
+            <label htmlFor="upload_photo" className={s.uploadPhoto}>
+                <AiOutlineUpload />
+                Choose a photo
+            </label>
             <button type="submit">{type}</button>
             <GrClose className={s.close} onClick={onClose} />
         </form>

@@ -3,7 +3,6 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MdDone } from "react-icons/md";
 import { useInView } from "react-intersection-observer";
 import s from "./styles.module.scss";
-import { useEffect, useState } from "react";
 
 function CountryItem ({ country, onDelete, onChange, onOpenCountryPopup, type }) {
     const { ref, inView } = useInView({ 
