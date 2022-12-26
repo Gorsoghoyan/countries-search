@@ -7,11 +7,11 @@ export const useSearch = (data, type) => {
     const [ isPending, startTransition ] = useTransition();
 
     useEffect(() => {
-        if (!initialData?.length) return;
+        if (!initialData) return;
         if (!search) return setFilteredData(initialData);
         if (type === "subUsers") {
             setFilteredData(data.filter(item => 
-                item.data.userName.toLowerCase().includes(search.toLowerCase().trim())
+                item.userName.toLowerCase().includes(search.toLowerCase().trim())
             ));
             return;
         }

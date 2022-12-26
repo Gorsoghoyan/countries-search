@@ -4,7 +4,7 @@ import { MdDone } from "react-icons/md";
 import { useInView } from "react-intersection-observer";
 import s from "./styles.module.scss";
 
-function CountryItem ({ country, handleEditPopup, onDelete, onChange, onOpenCountryPopup, type }) {
+function CountryItem ({ country, permissions, handleEditPopup, onDelete, onChange, onOpenCountryPopup, type }) {
     const { ref, inView } = useInView({ 
         threshold: 0.5,
         triggerOnce: true
@@ -30,24 +30,36 @@ function CountryItem ({ country, handleEditPopup, onDelete, onChange, onOpenCoun
                 }
             </div>
             <h2 className={s.countryName}>{country.name}</h2>
-           {type === "admin" && <>
-                <div className={s.actionsContainer}>
-                    <div onClick={() => onDelete(country.id)}>
-                        <RiDeleteBinLine className={s.delete} />
-                    </div>  
-                    <div onClick={() => handleEditPopup(country)}>
-                        <AiFillEdit className={s.edit} />
+            {
+                (permissions.delete || permissions.select || permissions.edit) &&
+                type === "admin" && 
+                <>
+                    <div className={s.actionsContainer}>
+                        {
+                            permissions.delete && 
+                            <div onClick={() => onDelete(country.id)}>
+                                <RiDeleteBinLine className={s.delete} />
+                            </div>
+                        }
+                        {
+                            permissions.edit && 
+                            <div onClick={() => handleEditPopup(country)}>
+                                <AiFillEdit className={s.edit} />
+                            </div>
+                        }
+                        {
+                            permissions.select && 
+                            <label>
+                                <input 
+                                    type="checkbox" 
+                                    checked={country.isChecked || false}
+                                    onChange={e => onChange(e, country.id)}
+                                />
+                            </label>}
                     </div>
-                    <label>
-                        <input 
-                            type="checkbox" 
-                            checked={country.isChecked}
-                            onChange={e => onChange(e, country.id)}
-                        />
-                    </label>
-                </div>
-                <MdDone className={s.done} display={country.isChecked ? "block" : "none"} />
-            </>}
+                    <MdDone className={s.done} display={country.isChecked ? "block" : "none"} />
+                </>
+            }
         </div>
     );
 }

@@ -4,19 +4,19 @@ import SearchInput from "../SearchInput";
 import s from "./styles.module.scss";
 
 function SearchBlock ({
-    type, search, handleSearch, placeholder,
+    search, handleSearch, placeholder, btnIsVisible,
     handleClick, btnIcon, btnText, isPending
 }) {
     const [ styles, setStyles ] = useState(null);
 
     useEffect(() => {
-        if (type === "countries") {
+        if (!btnIsVisible) {
             setStyles({
                 borderRadius: "5px",
                 width: "100%" 
             });
         }
-    }, [ type ]);
+    }, [ btnIsVisible ]);
 
     return (
         <div className={s.container}>
@@ -29,7 +29,7 @@ function SearchBlock ({
                     />
                     {isPending && <Loading />}
                 </div>
-                {type !== "countries" && 
+                {btnIsVisible &&
                     <button onClick={handleClick}>{btnIcon} {btnText}</button>
                 }
             </div>

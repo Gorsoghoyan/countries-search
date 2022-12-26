@@ -1,6 +1,7 @@
 @import "../../variables.css";
 
 .accounts {
+    position: relative;
     min-height: calc(100vh - var(--headerHeight));
     margin-top: var(--headerHeight);
     background: var(--black);
@@ -11,6 +12,7 @@
         h2 {
             width: max-content;
             margin: 0 auto;
+            color: white;
         }
     }
 }

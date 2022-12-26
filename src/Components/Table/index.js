@@ -19,9 +19,7 @@ function Table ({ data, column, type }) {
                 {type === "users" && 
                     data?.map(subUser => <SubUserRow
                         key={subUser.id}
-                        id={subUser.id}
-                        data={subUser.data}
-                        permissions={subUser.permissions}
+                        subUser={subUser}
                         onDelete={onDeleteUser}
                         onEdit={onEditUser}
                     />) 

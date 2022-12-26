@@ -19,7 +19,8 @@ const usePopupTeplate = ( country, onClose, onSetData, type ) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        if (!data.name) return;
+        if (!data.name) return;   
+        if (type === "Add" && !data.flag) return;
 
         if (type === "Edit") {
             onSetData(country.id, data);

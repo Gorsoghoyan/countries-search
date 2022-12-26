@@ -11,5 +11,12 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));    
         justify-content: center;
         gap: 45px;
+
+        .text {
+            width: max-content;
+            margin: 0 auto;
+            font-size: 30px;
+            color: white;
+        }
     }
 }

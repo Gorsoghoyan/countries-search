@@ -37,7 +37,6 @@ export const deleteCountry = (id) => {
     const countriesDataFromLS = JSON.parse(json);
 
     const newCountries = countriesDataFromLS.filter(country => country.id !== id);
-    console.log(id)
     localStorage.setItem("countriesData", JSON.stringify(newCountries));
 
     return (dispatch) => dispatch(setCountries(newCountries));
@@ -101,11 +100,9 @@ export const addNewSubUser = (subUserData) => {
 
     const newSubUser = {
         id: Date.now(),
+        ...subUserData.data,
         countryPermissions: subUserData.permissions,
-        data: subUserData.data
     };
-
-    console.log(newSubUser)
 
     subUsers.push(newSubUser);
 

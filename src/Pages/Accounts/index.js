@@ -3,6 +3,7 @@ import { useSearch } from "../../CustomHook/useSearch";
 import { column } from "./tableColumn";
 import useAccounts from "../../CustomHook/useAccounts";
 import SearchBlock from "../../Components/SearchBlock";
+import GoBack from "../../Components/goBack";
 import Table from "../../Components/Table";
 import s from "./styles.module.scss";
 
@@ -18,6 +19,7 @@ function Accounts () {
                 placeholder={"Search by sub-user name"}
                 search={search}
                 isPending={isPending}
+                btnIsVisible={true}
                 btnIcon={<AiOutlinePlus />}
                 handleSearch={handleSearch}
                 handleClick={openSubUserPopup}
@@ -32,6 +34,7 @@ function Accounts () {
                     <h2>There is no sub-user yet</h2>
                 }
             </div>
+            <GoBack />
         </section>
     );
 }

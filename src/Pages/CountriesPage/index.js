@@ -7,6 +7,7 @@ function Countries () {
     return (
         <CountriesFull 
             type="countries"
+            btnIsVisible={false}
             placeholder={"Search by country name"}
             onOpenCountryPopup={onOpenCountryPopup}
         />

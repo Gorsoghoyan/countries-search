@@ -66,12 +66,12 @@ const useAddSubUser = () => {
             }
         }
 
-        if (subUsers) {
+        if (subUsers.length) {
             for (let i = 0; i < subUsers.length; i++) {
                 const subUser = subUsers[i];
                 if (
-                    subUser.data.password === password || 
-                    subUser.data.userName === userName
+                    subUser.password === password || 
+                    subUser.userName === userName
                 ) {
                     setError("Please try another one");
                     return;

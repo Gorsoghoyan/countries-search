@@ -1,8 +1,10 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeCountryCheckbox, deleteCountry } from "../Redux/actions";
+import { selectCountryPermissions } from "../Redux/selections";
 import { openAddCountryPopup, openEditCountryPopup } from "../Redux/setter";
 
 const useAdminCountries = () => {
+    const permissions = useSelector(selectCountryPermissions);
     const dispatch = useDispatch();
 
     const handleAddPopup = () => {
@@ -22,6 +24,7 @@ const useAdminCountries = () => {
     };
 
     return {
+        permissions,
         onChange,
         onDelete,
         handleAddPopup,

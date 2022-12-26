@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 
 function AdminCountries () {
     const { 
+        permissions,
         onChange, 
         onDelete, 
         handleAddPopup ,
@@ -17,6 +18,7 @@ function AdminCountries () {
             onChange={onChange}
             handleAddPopup={handleAddPopup}
             handleEditPopup={handleEditPopup}
+            btnIsVisible={!permissions ? true : permissions.add ? true : false}
             btnIcon={<AiOutlinePlus />}
             btnText={"Add country"}
             placeholder={"Search by country name"}
