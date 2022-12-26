@@ -1,5 +1,5 @@
 import { countriesData } from "../fakeData/countries";
-import { deleteUserData, setCountries, setSubUserData, setSubUsers, setUserData } from "./setter";
+import { deleteUserData, setCountries, setSubUsers, setUserData } from "./setter";
 
 export const getCountries = () => {
     const json = localStorage.getItem('countriesData');
@@ -43,13 +43,13 @@ export const deleteCountry = (id) => {
     return (dispatch) => dispatch(setCountries(newCountries));
 };
 
-export const userSignIn = (userName) => {
+export const userSignIn = (userData) => {
     localStorage.setItem("user", JSON.stringify({
         token: Date.now(),
-        userName,
+        ...userData,
     })); 
 
-    return (dispatch) => dispatch(setUserData(userName));
+    return (dispatch) => dispatch(setUserData(userData));
 };
 
 export const userSignOut = () => {
@@ -67,6 +67,7 @@ export const editCountryData = (id, editedCountry) => {
             country.name = editedCountry.name;
             country.capital = editedCountry.capital;
             country.description = editedCountry.description;
+            country.flag = editedCountry.flag
             return true;
         }
         return false;
@@ -104,6 +105,8 @@ export const addNewSubUser = (subUserData) => {
         data: subUserData.data
     };
 
+    console.log(newSubUser)
+
     subUsers.push(newSubUser);
 
     localStorage.setItem("sub-users", JSON.stringify(subUsers))
@@ -120,13 +123,4 @@ export const deleteSubUser = (subUserId) => {
     localStorage.setItem("sub-users", JSON.stringify(newSubUsers));
 
     return (dispatch) => dispatch(setSubUsers(newSubUsers));
-};
-
-export const subUserSignIn = (subUser) => {
-    localStorage.setItem("sub-user", JSON.stringify(subUser));
-    
-    return (dispatch) => {
-        dispatch(userSignIn(subUser.data.userName));
-        dispatch(dispatch(setSubUserData(subUser)));
-    };
 };

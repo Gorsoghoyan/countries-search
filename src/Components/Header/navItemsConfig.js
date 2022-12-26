@@ -1,9 +1,7 @@
 import { GiEarthAfricaEurope } from "react-icons/gi";
 import { MdDashboard, MdManageAccounts } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
 import { GoSignOut, GoSignIn } from "react-icons/go";
 import { FiSettings } from "react-icons/fi";
-import { AiOutlineUserAdd } from "react-icons/ai";
 
 export const publicItems = [
     {
@@ -29,11 +27,6 @@ export const privateItems = [
         icon: <FiSettings />,
         children: [
             {
-                title: "Profile",
-                icon: <CgProfile />,
-                path: "/profile"
-            },
-            {
                 title: "Accounts",
                 icon: <MdManageAccounts />,
                 path: "/admin/accounts"
@@ -41,7 +34,6 @@ export const privateItems = [
             {
                 title: "Sign out",
                 icon: <GoSignOut />,
-                path: null,
                 type: "signout"
             }
         ]

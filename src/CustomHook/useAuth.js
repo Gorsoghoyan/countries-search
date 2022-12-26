@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { users } from "../fakeData/users";
-import { subUserSignIn, userSignIn } from "../Redux/actions";
+import { userSignIn } from "../Redux/actions";
 
 const useAuth = () => {
     const [ userData, setUserData ] = useState({
         userName: "",
-        email: "",
         password: ""
     });
     const [ inputType, setInputType ] = useState("password");
@@ -26,9 +25,9 @@ const useAuth = () => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        const { userName, email, password } = userData;
+        const { userName, password } = userData;
 
-        if (!userName || !email || !password) {
+        if (!userName || !password) {
             setError("Please fill in the inputs");
             return;
         }
@@ -37,11 +36,10 @@ const useAuth = () => {
             const user = users[i];
             if (
                 user.password === password && 
-                user.email === email && 
                 user.userName === userName
             ) {
                 setError("");
-                dispatch(userSignIn(user.userName));
+                dispatch(userSignIn(userData));
                 navigate("/admin/countries", { replace: true });
                 return;
             }
@@ -52,11 +50,10 @@ const useAuth = () => {
                 const subUser = subUsers[i];
                 if (
                     subUser.data.password === password && 
-                    subUser.data.email === email && 
                     subUser.data.userName === userName
                 ) {
                     setError("");
-                    dispatch(subUserSignIn(subUser));
+                    dispatch(userSignIn(subUser));
                     navigate("/admin/countries", { replace: true });
                     return;
                 }

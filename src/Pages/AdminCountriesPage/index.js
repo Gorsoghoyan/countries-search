@@ -1,12 +1,13 @@
 import useAdminCountries from "../../CustomHook/useAdminCountries";
 import CountriesFull from "../../Components/CountriesFull";
+import { AiOutlinePlus } from "react-icons/ai";
 
 function AdminCountries () {
     const { 
-        onEdit, 
         onChange, 
         onDelete, 
-        handleAddPopup 
+        handleAddPopup ,
+        handleEditPopup, 
     } = useAdminCountries();
 
     return (
@@ -15,6 +16,10 @@ function AdminCountries () {
             onDelete={onDelete}
             onChange={onChange}
             handleAddPopup={handleAddPopup}
+            handleEditPopup={handleEditPopup}
+            btnIcon={<AiOutlinePlus />}
+            btnText={"Add country"}
+            placeholder={"Search by country name"}
         />
     );
 }

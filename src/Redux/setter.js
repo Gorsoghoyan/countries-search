@@ -32,14 +32,9 @@ export const openAddSubUserPopup = () => ({ type: OPEN_ADD_SUB_USER_POPUP });
 
 export const closeAddSubUserPopup = () => ({ type: CLOSE_ADD_SUB_USER_POPUP });
 
-export const setUserData = (userName) => ({
+export const setUserData = (userData) => ({
     type: USER_SIGN_IN,
-    payload: userName
+    payload: userData
 });
 
 export const deleteUserData = () => ({ type: USER_SIGN_OUT })
-
-export const setSubUserData = (subUser) => ({
-    type: SET_SUB_USER,
-    payload: subUser
-});

@@ -15,7 +15,6 @@ const useAddSubUser = () => {
 
     const [ userData, setUserData ] = useState({
         userName: "",
-        email: "",
         password: ""
     });
 
@@ -49,9 +48,9 @@ const useAddSubUser = () => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         const subUsers = JSON.parse(localStorage.getItem("sub-users")) || false;
-        const { userName, email, password } = userData;
+        const { userName, password } = userData;
 
-        if (!userName || !email || !password) {
+        if (!userName || !password) {
             setError("Please fill in the inputs");
             return;
         }
@@ -60,9 +59,9 @@ const useAddSubUser = () => {
             const user = users[i];
             if (
                 user.password === password ||
-                user.email === email 
+                user.userName === userName 
             ) {
-                setError("Such an account already exist");
+                setError("Please try another one");
                 return;
             }
         }
@@ -72,9 +71,9 @@ const useAddSubUser = () => {
                 const subUser = subUsers[i];
                 if (
                     subUser.data.password === password || 
-                    subUser.data.email === email
+                    subUser.data.userName === userName
                 ) {
-                    setError("Such an account already exist");
+                    setError("Please try another one");
                     return;
                 }
             }

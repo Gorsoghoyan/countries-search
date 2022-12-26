@@ -3,18 +3,27 @@
 .form {
     background: white;
     position: relative;
-    width: 60%;
+    width: 600px;
     max-height: 80%;
     overflow-y: auto;
     padding: 20px;
     margin: 40px 0;
     border-radius: 20px;
 
+    .flagWrapper {
+
+        img {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+        }
+    }
+
     input[type="file"] {
         display: none;
     }
 
-    .uploadPhoto {
+    .uploadBtn {
         width: 100%;
         background: var(--blue);
         color: white;
@@ -41,7 +50,7 @@
         border-radius: 5px;
         color: white;
         background: var(--blue);
-        margin-top: 20px;
+        margin-top: 40px;
         cursor: pointer;
     }
 
@@ -57,7 +66,7 @@
         margin: 20px 0;
 
         input, textarea {
-            width: 80%;
+            width: 100%;
             padding: 15px 20px;
             font-size: 16px;
             border: 1px solid black;

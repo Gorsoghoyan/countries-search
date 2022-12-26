@@ -5,7 +5,8 @@ const usePopupTeplate = ( country, onClose, onSetData, type ) => {
     const [ data, setData ] = useState({
         name: country.name,
         capital: country.capital,
-        description: country.description
+        description: country.description,
+        flag: country.flag,
     });
 
     const nodeRef = useClickOutSide(() => {
@@ -29,10 +30,22 @@ const usePopupTeplate = ( country, onClose, onSetData, type ) => {
         onClose();
     };  
 
+    const handleChange = (e) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setData({
+                ...data,
+                flag: reader.result
+            });
+        };
+    };
+
     return {
         nodeRef,
         data,
         handleSetData,
+        handleChange,
         handleSubmit,
     };
 };

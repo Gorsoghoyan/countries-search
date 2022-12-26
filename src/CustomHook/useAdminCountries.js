@@ -1,12 +1,16 @@
 import { useDispatch } from "react-redux";
 import { changeCountryCheckbox, deleteCountry } from "../Redux/actions";
-import { openAddCountryPopup } from "../Redux/setter";
+import { openAddCountryPopup, openEditCountryPopup } from "../Redux/setter";
 
 const useAdminCountries = () => {
     const dispatch = useDispatch();
 
     const handleAddPopup = () => {
         dispatch(openAddCountryPopup());  
+    };
+
+    const handleEditPopup = (country) => {
+        dispatch(openEditCountryPopup(country));
     };
 
     const onChange = (e, id) => {
@@ -20,7 +24,8 @@ const useAdminCountries = () => {
     return {
         onChange,
         onDelete,
-        handleAddPopup
+        handleAddPopup,
+        handleEditPopup
     };  
 };
 

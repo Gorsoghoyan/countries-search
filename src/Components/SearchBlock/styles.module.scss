@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+
+    .searchWrapper {
+        overflow: hidden;
+        border-radius: 5px;
+        display: flex;
+        width: 50%;
+        
+        .inputContainer {
+            position: relative;
+            width: calc(100% - 180px);
+            
+            input {
+                width: 100%;
+            }
+        }
+
+        button {
+            width: 180px;
+            border: none;
+            outline: none;
+            background: var(--blue);
+            color: white;
+            padding: 10px 0;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                font-size: 21px;
+            }
+
+            svg {
+                margin-right: 3px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .container {
+        .searchWrapper {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 712px) {
+    .container {
+        .searchWrapper {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 546px) {
+    .container {
+        .searchWrapper {
+
+            .inputContainer {
+                width: calc(100% - 150px);
+            }
+
+            button {
+                width: 150px;
+            }
+        }
+    }
+}

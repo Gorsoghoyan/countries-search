@@ -9,12 +9,12 @@ export const useSearch = (data, type) => {
     useEffect(() => {
         if (!initialData?.length) return;
         if (!search) return setFilteredData(initialData);
-        // if (type === "subUsers") {
-        //     setFilteredData(data.filter(item => 
-        //         item.data.userName.toLowerCase().includes(search.toLowerCase().trim())
-        //     ));
-        //     return;
-        // }
+        if (type === "subUsers") {
+            setFilteredData(data.filter(item => 
+                item.data.userName.toLowerCase().includes(search.toLowerCase().trim())
+            ));
+            return;
+        }
         setFilteredData(initialData.filter(item => 
             item.name.toLowerCase().includes(search.toLowerCase().trim())
         ));

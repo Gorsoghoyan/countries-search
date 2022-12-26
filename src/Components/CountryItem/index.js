@@ -4,7 +4,7 @@ import { MdDone } from "react-icons/md";
 import { useInView } from "react-intersection-observer";
 import s from "./styles.module.scss";
 
-function CountryItem ({ country, onDelete, onChange, onOpenCountryPopup, type }) {
+function CountryItem ({ country, handleEditPopup, onDelete, onChange, onOpenCountryPopup, type }) {
     const { ref, inView } = useInView({ 
         threshold: 0.5,
         triggerOnce: true
@@ -24,7 +24,7 @@ function CountryItem ({ country, onDelete, onChange, onOpenCountryPopup, type })
             <div className={s.imgWrapper}>
                 {
                     <img 
-                        src={`https://flagcdn.com/${inView ? "h240" : "h20"}/${country.code}.png`} 
+                        src={country.flag || `https://flagcdn.com/${inView ? "h240" : "h20"}/${country.code}.png`} 
                         alt={`${country.name}'s flag`} 
                     />
                 }
@@ -35,7 +35,7 @@ function CountryItem ({ country, onDelete, onChange, onOpenCountryPopup, type })
                     <div onClick={() => onDelete(country.id)}>
                         <RiDeleteBinLine className={s.delete} />
                     </div>  
-                    <div>
+                    <div onClick={() => handleEditPopup(country)}>
                         <AiFillEdit className={s.edit} />
                     </div>
                     <label>

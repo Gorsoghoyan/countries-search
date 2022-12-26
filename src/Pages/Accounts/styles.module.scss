@@ -1,57 +1,12 @@
 @import "../../variables.css";
 
 .accounts {
-    height: calc(100% - var(--headerHeight));
-    overflow: auto;
-    &::-webkit-scrollbar {
-        width: 15px;
-    }
-    &::-webkit-scrollbar-track {
-        background: rgb(223, 223, 223); 
-        border-radius: 20px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: #1f79ef; 
-        border-radius: 20px;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-        background: #2b75d6; 
-    }
-
-    .topPart {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 20px 0;
-
-        input {
-            width: 45%;
-        }
-
-        button {
-            border: none;
-            outline: none;
-            background: var(--blue);
-            color: white;
-            font-size: 20px;
-            padding: 10px 20px;
-            margin-left: 40px;
-            border-radius: 5px;
-            margin-top: auto;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            svg {
-                margin-right: 3px;
-            }
-        }
-    }
+    min-height: calc(100vh - var(--headerHeight));
+    margin-top: var(--headerHeight);
+    background: var(--black);
+    padding: 40px;
 
     .usersContainer {
-        margin: 50px 0 50px 0;
 
         h2 {
             width: max-content;

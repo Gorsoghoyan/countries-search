@@ -1,11 +1,10 @@
 import useTable from "../../CustomHook/useTable";
 import TableHeadItem from "./TableHeadItem";
-import CountryRow from "./CountryRow";
 import SubUserRow from "./SubUserRow";
 import s from "./styles.module.scss";
 
 function Table ({ data, column, type }) {
-    const { onChangeCountry, onDeleteCountry, onEditCountry, onEditUser, onDeleteUser } = useTable();
+    const { onEditUser, onDeleteUser } = useTable();
 
     return (
         <table border="1" className={s.table}>
@@ -17,15 +16,6 @@ function Table ({ data, column, type }) {
                 </tr>
             </thead>
             <tbody>
-                {type === "countries" && 
-                    data?.map(country => <CountryRow 
-                        key={country.id}
-                        country={country}
-                        onChange={onChangeCountry}
-                        onDelete={onDeleteCountry}
-                        onEdit={onEditCountry}
-                    />)
-                }
                 {type === "users" && 
                     data?.map(subUser => <SubUserRow
                         key={subUser.id}

@@ -1,27 +1,27 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { useSearch } from "../../CustomHook/useSearch";
 import { column } from "./tableColumn";
-import SearchInput from "../../Components/SearchInput";
 import useAccounts from "../../CustomHook/useAccounts";
+import SearchBlock from "../../Components/SearchBlock";
 import Table from "../../Components/Table";
 import s from "./styles.module.scss";
 
 function Accounts () {
     const { subUsers, openSubUserPopup } = useAccounts();
-    const { filteredData, search, handleSearch } = useSearch(subUsers, "subUsers");
+    const { filteredData, isPending, search, handleSearch } = useSearch(subUsers, "subUsers");
 
     return (
         <section className={s.accounts}>
-            <div className={s.topPart}>
-                <SearchInput 
-                    search={search}
-                    setSearch={handleSearch}
-                    placeholder="Search by sub-user name"
-                />
-                <button onClick={openSubUserPopup}>
-                    <AiOutlinePlus />Add user
-                </button>
-            </div>
+            <SearchBlock 
+                type="accounts"
+                btnText={"Add sub-user"}
+                placeholder={"Search by sub-user name"}
+                search={search}
+                isPending={isPending}
+                btnIcon={<AiOutlinePlus />}
+                handleSearch={handleSearch}
+                handleClick={openSubUserPopup}
+            />
             <div className={s.usersContainer}>
                 {filteredData?.length ?
                     <Table 

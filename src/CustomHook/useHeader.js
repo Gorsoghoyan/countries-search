@@ -17,14 +17,6 @@ const useHeader = () => {
         }
     }, [ token ]);
 
-    const handleClick = () => {
-        setActive(!active);
-    };
-
-    const closeNav = () => {
-        setActive(false);
-    };
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -38,6 +30,22 @@ const useHeader = () => {
 
         return () => window.removeEventListener("scroll", handleScroll);
     });
+
+    useEffect(() => {
+        if (active) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [ active ]); 
+    
+    const handleClick = () => {
+        setActive(!active);
+    };
+
+    const closeNav = () => {
+        setActive(false);
+    };
 
     return {
         active,

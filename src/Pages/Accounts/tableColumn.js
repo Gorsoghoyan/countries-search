@@ -1,5 +1,4 @@
 export const column = [
-    { title: "Name" },
-    { title: "Email" },
+    { title: "User name" },
     { title: "Actions" }
 ];  

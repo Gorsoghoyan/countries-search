@@ -1,36 +1,31 @@
-import SearchInput from "../SearchInput";
-import Loading from "../Loading";
 import CountryItem from "../CountryItem";
 import useCountriesFull from "../../CustomHook/useCountriesFull";
-import { AiOutlinePlus } from "react-icons/ai";
+import SearchBlock from "../SearchBlock";
 import s from "./styles.module.scss";
 
-function CountriesFull ({ onDelete, onChange, handleAddPopup, onOpenCountryPopup, type }) {
+function CountriesFull ({
+    onDelete, onChange, handleEditPopup, handleAddPopup,
+    onOpenCountryPopup, type, placeholder, btnText, btnIcon
+}) {
     const { 
         isPending,
         scrollingData, 
         search,
-        styles,
         handleSearch,
     } = useCountriesFull(type);
 
     return (
         <section className={s.mainContainer}>
-            <div className={s.searchContainer}>
-                <div className={s.searchWrapper}>
-                    <div className={s.inputContainer} style={styles}>
-                        <SearchInput 
-                            search={search}
-                            setSearch={handleSearch}
-                            placeholder={`Search by country name`}
-                        />
-                        {isPending && <Loading />}
-                    </div>
-                    {type === "admin" && 
-                        <button onClick={handleAddPopup}><AiOutlinePlus />Add country</button>
-                    }
-                </div>
-            </div>
+            <SearchBlock 
+                type={type}
+                search={search}
+                btnIcon={btnIcon}
+                btnText={btnText}
+                isPending={isPending}
+                placeholder={placeholder}
+                handleClick={handleAddPopup}
+                handleSearch={handleSearch}
+            />
             <div className={s.countriesContainer}>
                 {scrollingData?.map(country => 
                     <CountryItem 
@@ -39,6 +34,7 @@ function CountriesFull ({ onDelete, onChange, handleAddPopup, onOpenCountryPopup
                         country={country}
                         onDelete={onDelete}
                         onChange={onChange}
+                        handleEditPopup={handleEditPopup}
                         onOpenCountryPopup={onOpenCountryPopup}
                     />    
                 )}
